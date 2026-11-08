@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Action People ML — Deteksi aksi manusia langsung di perangkat</title>
+<meta name="description" content="Action People ML mengenali gerak tubuh dan aksi manusia dari kamera, sepenuhnya di perangkat Anda. Tersedia untuk Android, iOS, macOS, Windows, dan web.">
+<meta name="theme-color" content="#f5f2eb">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Action People ML — Deteksi aksi manusia langsung di perangkat">
+<meta property="og:description" content="Kenali gerak tubuh jadi data aksi. Video diproses di perangkat, tidak pernah diunggah.">
+<meta property="og:url" content="https://actionpeople.ml/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="assets/mark.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+
+<a class="skip" href="#main">Lompat ke konten</a>
+
+<header class="site-head">
+  <div class="container head-inner">
+    <a class="brand" href="./">
+      <img src="assets/mark.svg" alt="" width="22" height="22">
+      Action People ML
+    </a>
+    <nav class="site-nav" aria-label="Navigasi utama">
+      <a href="#cara-kerja">Cara kerja</a>
+      <a href="#platform">Platform</a>
+      <a href="#privasi">Privasi</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <a class="btn btn-primary head-cta" href="#platform">Unduh</a>
+  </div>
+</header>
+
+<main id="main">
+
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="container">
+
+      <div class="spec">
+        <span>Action People ML</span>
+        <span>v1.0</span>
+        <span>Edge inference</span>
+        <span>33 keypoint</span>
+        <span>Video tidak diunggah</span>
+      </div>
+
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <h1 id="hero-title">Kenali gerak tubuh, <span class="accent">langsung di perangkat.</span></h1>
+          <p class="lede">
+            Arahkan kamera, dan Action People ML membaca pose, menghitung gerakan,
+            lalu mencatat aksi seperti berdiri, jongkok, dan lompat, tanpa mengirim
+            satu frame pun ke server.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary btn-lg" href="#platform">Unduh aplikasi</a>
+            <a class="btn btn-ghost btn-lg" href="#cara-kerja">Lihat cara kerja</a>
+          </div>
+
+          <!-- Angka di bawah ini contoh. Ganti dengan hasil benchmark kamu. -->
+          <dl class="hero-facts">
+            <div>
+              <dt>Model</dt>
+              <dd>Pose · 33 titik</dd>
+            </div>
+            <div>
+              <dt>Inferensi</dt>
+              <dd>On-device</dd>
+            </div>
+            <div>
+              <dt>Video keluar</dt>
+              <dd>0 byte</dd>
+            </div>
+          </dl>
+        </div>
+
+        <div class="demo">
+          <div class="demo-controls">
+            <span id="pose-label">Contoh pose</span>
+            <div class="seg" role="group" aria-labelledby="pose-label">
+              <button type="button" data-pose="tegak" aria-pressed="true">Tegak</button>
+              <button type="button" data-pose="jongkok" aria-pressed="false">Jongkok</button>
+              <button type="button" data-pose="lompat" aria-pressed="false">Lompat</button>
+            </div>
+          </div>
+
+          <figure class="detector" data-demo>
+            <div class="detector-head">
+              <span>CAM 01 · 1280×720 · 30fps</span>
+              <span class="live"><i aria-hidden="true"></i><span data-live>Aksi: Tegak</span></span>
+            </div>
+
+            <div class="stage" data-stage role="img" aria-label="Pratinjau deteksi pose, aksi terdeteksi: Tegak">
+              <svg viewBox="0 0 160 90" aria-hidden="true" focusable="false">
+                <defs>
+                  <pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse">
+                    <path d="M10 0H0V10" fill="none" stroke="rgba(245,242,235,.07)" stroke-width=".3"/>
+                  </pattern>
+                </defs>
+                <rect width="160" height="90" fill="url(#grid)"/>
+                <path d="M4 76H156" stroke="rgba(245,242,235,.28)" stroke-width=".35"/>
+                <path d="M4 76l3-2v4z" fill="rgba(245,242,235,.28)"/>
+                <text x="6" y="86" fill="rgba(245,242,235,.42)" font-size="2.6" letter-spacing=".3">LANTAI · 0,00 m</text>
+                <text x="154" y="86" fill="rgba(245,242,235,.42)" font-size="2.6" text-anchor="end" letter-spacing=".3">CONF 0,96</text>
+
+                <g data-shape="tegak">
+                  <rect class="bbox" x="82" y="20" width="36" height="58" rx="1"/>
+                  <rect class="chip-bg" x="82" y="11" width="35" height="8"/>
+                  <text class="chip-tx" x="84" y="16.8">BERDIRI 96%</text>
+                  <circle class="joint" cx="100" cy="28" r="4.6"/>
+                  <path class="pose-line" d="M100 32.6V56M92 36l-4 8 1 8M108 36l4 8-1 8M94 57l-3 9 1 9M106 57l3 9-1 9"/>
+                  <circle class="joint" cx="88" cy="52" r="1.1"/>
+                  <circle class="joint" cx="112" cy="52" r="1.1"/>
+                  <circle class="joint" cx="91" cy="66" r="1.1"/>
+                  <circle class="joint" cx="109" cy="66" r="1.1"/>
+                  <circle class="joint" cx="100" cy="56" r="1.3"/>
+                </g>
+
+                <g data-shape="jongkok" display="none">
+                  <rect class="bbox" x="78" y="32" width="42" height="46" rx="1"/>
+                  <rect class="chip-bg" x="78" y="23" width="37" height="8"/>
+                  <text class="chip-tx" x="80" y="28.8">JONGKOK 91%</text>
+                  <circle class="joint" cx="99" cy="40" r="4.6"/>
+                  <path class="pose-line" d="M99 44.6V62M91 47l-6 7 2 8M107 47l6 7-2 8M94 62l-8 4 1 9M104 62l8 4-1 9"/>
+                  <circle class="joint" cx="87" cy="62" r="1.1"/>
+                  <circle class="joint" cx="111" cy="62" r="1.1"/>
+                  <circle class="joint" cx="86" cy="66" r="1.1"/>
+                  <circle class="joint" cx="112" cy="66" r="1.1"/>
+                  <circle class="joint" cx="99" cy="62" r="1.3"/>
+                </g>
+
+                <g data-shape="lompat" display="none">
+                  <rect class="bbox" x="76" y="8" width="46" height="52" rx="1"/>
+                  <rect class="chip-bg" x="76" y="0" width="35" height="8"/>
+                  <text class="chip-tx" x="78" y="5.8">LOMPAT 84%</text>
+                  <circle class="joint" cx="100" cy="18" r="4.6"/>
+                  <path class="pose-line" d="M100 22.6V41M92 25l-6-7-2-7M108 25l6-7 2-7M95 41l-6 6 2 6M105 41l6 6-2 6"/>
+                  <circle class="joint" cx="86" cy="18" r="1.1"/>
+                  <circle class="joint" cx="114" cy="18" r="1.1"/>
+                  <circle class="joint" cx="89" cy="47" r="1.1"/>
+                  <circle class="joint" cx="111" cy="47" r="1.1"/>
+                  <circle class="joint" cx="100" cy="41" r="1.3"/>
+                  <path d="M90 76h20" stroke="rgba(198,242,78,.36)" stroke-width=".5" stroke-dasharray="2 1.4"/>
+                </g>
+
+                <g fill="none" stroke="rgba(198,242,78,.5)" stroke-width=".4">
+                  <path d="M2 2h8M2 2v8M158 2h-8M158 2v8"/>
+                </g>
+              </svg>
+              <div class="scan" aria-hidden="true"></div>
+              <div class="corners" aria-hidden="true"></div>
+              <span class="stage-time mono">00:12:04.318</span>
+            </div>
+
+            <div class="detector-body">
+              <div class="dist">
+                <p>Distribusi aksi</p>
+                <ul data-bars></ul>
+              </div>
+              <div class="log">
+                <p>Log peristiwa</p>
+                <ol data-log></ol>
+              </div>
+            </div>
+
+            <figcaption class="detector-foot">
+              <span>Pratinjau interaktif</span>
+              <span>Semua proses lokal</span>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="cara-kerja" aria-labelledby="cara-title">
+    <div class="container split reveal">
+      <div class="split-head">
+        <p class="kicker"><span class="n">01</span> Cara kerja</p>
+        <h2 id="cara-title">Dari piksel kamera jadi catatan aksi.</h2>
+        <p>
+          Satu pipeline kecil yang berjalan di perangkat: estimasi pose, klasifikasi
+          aksi per jendela waktu, lalu pencatatan kejadian yang bisa kamu tinjau
+          ulang.
+        </p>
+      </div>
+
+      <ol class="rows">
+        <li>
+          <span class="row-id">Lapisan 1 · Persepsi</span>
+          <h3>Estimasi pose 33 titik</h3>
+          <p>Kerangka tubuh diekstrak per frame, lengkap dengan skor keyakinan untuk tiap titik.</p>
+          <span class="row-stat">33 titik</span>
+        </li>
+        <li>
+          <span class="row-id">Lapisan 2 · Klasifikasi</span>
+          <h3>Aksi dibaca sebagai rentang waktu</h3>
+          <p>Urutan pose dalam jendela pendek dinilai sebagai aksi: berdiri, berjalan, jongkok, melompat.</p>
+          <span class="row-stat">4 kelas</span>
+        </li>
+        <li>
+          <span class="row-id">Lapisan 3 · Pencatatan</span>
+          <h3>Setiap perubahan masuk log</h3>
+          <p>Perubahan aksi dicatat dengan waktu dan tingkat keyakinan, siap diekspor untuk analisis.</p>
+          <span class="row-stat">CSV / JSON</span>
+        </li>
+        <li>
+          <span class="row-id">Lapisan 4 · Privasi</span>
+          <h3>Frame berhenti di perangkat</h3>
+          <p>Tidak ada unggahan video. Yang keluar hanya data yang kamu pilih sendiri untuk diekspor.</p>
+          <span class="row-stat">0 unggahan</span>
+        </li>
+      </ol>
+    </div>
+
+    <div class="container">
+      <ol class="steps reveal" aria-label="Tiga langkah memulai">
+        <li>
+          <span class="n">01</span>
+          <h3>Pasang dari toko resmi</h3>
+          <p>Pilih platformmu. Satu akun yang sama berlaku di semua versi.</p>
+        </li>
+        <li>
+          <span class="n">02</span>
+          <h3>Izinkan kamera</h3>
+          <p>Model diunduh sekali, lalu berjalan offline tanpa koneksi internet.</p>
+        </li>
+        <li>
+          <span class="n">03</span>
+          <h3>Mulai sesi</h3>
+          <p>Rekam sesi, tinjau timeline aksi, ekspor bila perlu.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <aside class="usecases" aria-label="Contoh penggunaan">
+    <div class="container">
+      <span class="label">Dipakai untuk</span>
+      <ul>
+        <li>Rehabilitasi gerak</li>
+        <li>Analisis teknik olahraga</li>
+        <li>Ergonomi kerja</li>
+        <li>Kelas tari</li>
+        <li>Riset biomekanika</li>
+        <li>Latihan mandiri</li>
+      </ul>
+    </div>
+  </aside>
+
+  <section class="section" id="platform" aria-labelledby="platform-title">
+    <div class="container reveal">
+      <div class="platform-head">
+        <div>
+          <p class="kicker"><span class="n">02</span> Platform</p>
+          <h2 id="platform-title">Satu aplikasi, lima tempat.</h2>
+        </div>
+        <p>
+          Pilih paket sesuai perangkatmu. Versi web berjalan sebagai PWA dan
+          memakai model yang sama dengan aplikasi desktop.
+        </p>
+      </div>
+
+      <table class="platform-table">
+        <caption class="sr-only">Tautan unduhan per platform</caption>
+        <thead>
+          <tr>
+            <th scope="col">Platform</th>
+            <th scope="col">Sistem</th>
+            <th scope="col">Ukuran</th>
+            <th scope="col"><span class="sr-only">Tautan</span></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <div class="platform-cell">
+                <span class="platform-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round">
+                    <path d="M4.5 3.2 17.8 12 4.5 20.8z"/>
+                    <path d="M4.5 3.2 13 12l-8.5 8.8"/>
+                  </svg>
+                </span>
+                <span class="platform-name">
+                  <strong>Android</strong>
+                  <span>Google Play</span>
+                </span>
+              </div>
+            </td>
+            <td class="sys">Android 10+</td>
+            <td class="size">48 MB</td>
+            <td class="action"><a class="get" data-store="playStore" data-external>Dapatkan <span aria-hidden="true">&#8599;</span></a></td>
+          </tr>
+          <tr>
+            <td>
+              <div class="platform-cell">
+                <span class="platform-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M15.8 12.6c0-2.1 1.7-3.1 1.8-3.2-1-1.4-2.5-1.6-3-1.6-1.3-.1-2.5.7-3.1.7-.7 0-1.7-.7-2.7-.7-1.4 0-2.7.8-3.4 2-1.4 2.5-.4 6.2 1 8.2.7 1 1.5 2.1 2.5 2 1-.1 1.4-.6 2.6-.6s1.6.6 2.6.6c1.1 0 1.8-1 2.5-2 .5-.7.8-1.4 1-1.8-2.3-.9-1.8-3.5-1.8-3.6z"/>
+                    <path d="M13.9 6.2c.6-.7 1-1.7.9-2.7-.9.1-1.9.6-2.5 1.3-.5.6-1 1.6-.9 2.6 1 .1 2-.5 2.5-1.2z"/>
+                  </svg>
+                </span>
+                <span class="platform-name">
+                  <strong>iPhone &amp; iPad</strong>
+                  <span>App Store</span>
+                </span>
+              </div>
+            </td>
+            <td class="sys">iOS 16+ / iPadOS 16+</td>
+            <td class="size">52 MB</td>
+            <td class="action"><a class="get" data-store="appStore" data-external>Dapatkan <span aria-hidden="true">&#8599;</span></a></td>
+          </tr>
+          <tr>
+            <td>
+              <div class="platform-cell">
+                <span class="platform-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="2.5" y="4" width="19" height="12.5" rx="1.6"/>
+                    <path d="M8 20h8M12 16.5V20"/>
+                  </svg>
+                </span>
+                <span class="platform-name">
+                  <strong>macOS</strong>
+                  <span>Apple silicon &amp; Intel</span>
+                </span>
+              </div>
+            </td>
+            <td class="sys">macOS 13+</td>
+            <td class="size">74 MB</td>
+            <td class="action"><a class="get" data-store="macOS" data-external>Dapatkan <span aria-hidden="true">&#8599;</span></a></td>
+          </tr>
+          <tr>
+            <td>
+              <div class="platform-cell">
+                <span class="platform-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round">
+                    <path d="M3 3h8v8H3zM13 3h8v8h-8zM3 13h8v8H3zM13 13h8v8h-8z"/>
+                  </svg>
+                </span>
+                <span class="platform-name">
+                  <strong>Windows</strong>
+                  <span>Microsoft Store</span>
+                </span>
+              </div>
+            </td>
+            <td class="sys">Windows 10 &amp; 11</td>
+            <td class="size">81 MB</td>
+            <td class="action"><a class="get" data-store="windows" data-external>Dapatkan <span aria-hidden="true">&#8599;</span></a></td>
+          </tr>
+          <tr>
+            <td>
+              <div class="platform-cell">
+                <span class="platform-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="9"/>
+                    <path d="M3 12h18M12 3c2.6 2.4 4 5.6 4 9s-1.4 6.6-4 9c-2.6-2.4-4-5.6-4-9s1.4-6.6 4-9z"/>
+                  </svg>
+                </span>
+                <span class="platform-name">
+                  <strong>Web</strong>
+                  <span>PWA · tanpa pasang</span>
+                  <span class="tag-now">Buka langsung</span>
+                </span>
+              </div>
+            </td>
+            <td class="sys">Chrome, Safari, Edge terbaru</td>
+            <td class="size">&mdash;</td>
+            <td class="action"><a class="get" data-store="web" data-external>Buka aplikasi <span aria-hidden="true">&#8599;</span></a></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <noscript>
+        <p class="table-note">Tautan toko memerlukan JavaScript. URL lengkap tersedia di <code>assets/store-links.js</code>.</p>
+      </noscript>
+      <p class="table-note">Tautan di atas masih template. Isi URL asli di <code>assets/store-links.js</code>. Selama belum diisi, tombol tampil sebagai &ldquo;Segera hadir&rdquo;.</p>
+    </div>
+  </section>
+
+  <section class="band" id="privasi" aria-labelledby="privasi-title">
+    <div class="container band-grid">
+      <div class="reveal">
+        <p class="kicker"><span class="n">03</span> Privasi</p>
+        <h2 id="privasi-title">Videonya tidak pernah keluar dari perangkat.</h2>
+        <p>
+          Deteksi berjalan lokal. Yang kami simpan hanya yang perlu: pengaturan,
+          riwayat sesi, dan data akun kalau kamu memilih untuk masuk.
+        </p>
+        <div class="band-actions">
+          <a class="btn btn-primary" href="privacy.html">Baca kebijakan privasi</a>
+          <a class="btn btn-ghost-inv" href="privacy.html#kamera">Cara kamera diproses</a>
+        </div>
+      </div>
+
+      <ul class="checks reveal">
+        <li>
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 8.5 3.2 3.2L13 5"/></svg>
+          Frame kamera diproses di memori dan langsung dibuang
+        </li>
+        <li>
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 8.5 3.2 3.2L13 5"/></svg>
+          Tanpa unggahan video, tanpa penyimpanan rekaman diam-diam
+        </li>
+        <li>
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 8.5 3.2 3.2L13 5"/></svg>
+          Kamera hanya aktif saat sesi berjalan
+        </li>
+        <li>
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 8.5 3.2 3.2L13 5"/></svg>
+          Ekspor data selalu atas tindakanmu sendiri
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section" id="faq" aria-labelledby="faq-title">
+    <div class="container faq-grid reveal">
+      <div>
+        <p class="kicker"><span class="n">04</span> FAQ</p>
+        <h2 id="faq-title">Pertanyaan yang sering muncul.</h2>
+        <p>Belum terjawab? Kirim pesan ke <a href="mailto:halo@actionpeople.ml">halo@actionpeople.ml</a>.</p>
+      </div>
+
+      <div class="faq-list">
+        <details open>
+          <summary>Apakah aplikasi ini butuh internet?</summary>
+          <p>Tidak untuk deteksi. Model diunduh sekali saat pertama dijalankan, setelah itu semua inferensi berjalan offline. Internet hanya dipakai untuk masuk akun dan pembaruan aplikasi.</p>
+        </details>
+        <details>
+          <summary>Apakah rekaman video saya diunggah?</summary>
+          <p>Tidak. Frame kamera diproses di memori perangkat lalu dibuang. Aplikasi menyimpan hasil analisis berupa pose dan catatan aksi, bukan video. Detailnya ada di <a href="privacy.html">kebijakan privasi</a>.</p>
+        </details>
+        <details>
+          <summary>Apa bedanya versi gratis dan berbayar?</summary>
+          <p>Versi gratis mencakup satu kamera dan sesi tanpa batas dengan riwayat 7 hari. Versi Pro menambah ekspor tanpa batas, banyak kamera, dan riwayat penuh.</p>
+        </details>
+        <details>
+          <summary>Perangkat seperti apa yang didukung?</summary>
+          <p>Aplikasi berjalan di Android 10+, iOS 16+, macOS 13+, Windows 10+, dan browser modern. Perangkat dengan NPU atau GPU terintegrasi memberi frame rate paling stabil.</p>
+        </details>
+        <details>
+          <summary>Bagaimana cara menghapus data saya?</summary>
+          <p>Hapus sesi satu per satu di dalam aplikasi, atau minta penghapusan akun lewat email. Permintaan diproses maksimal 30 hari.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-foot">
+  <div class="container foot-grid">
+    <div>
+      <a class="foot-brand" href="./">
+        <img src="assets/mark.svg" alt="" width="18" height="18">
+        Action People ML
+      </a>
+      <p class="foot-note">Deteksi aksi manusia yang berjalan di perangkatmu sendiri.</p>
+    </div>
+
+    <nav class="foot-links" aria-label="Navigasi kaki halaman">
+      <a href="privacy.html">Kebijakan privasi</a>
+      <a href="privacy.html#kontak">Kontak</a>
+      <a href="#platform">Unduh</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+
+    <p class="foot-meta">
+      &copy; <span id="year">2026</span> Action People ML<br>
+      Dibuat untuk berjalan lokal
+    </p>
+  </div>
+</footer>
+
+<script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+<script src="assets/store-links.js"></script>
+<script src="assets/app.js"></script>
+</body>
+</html>
