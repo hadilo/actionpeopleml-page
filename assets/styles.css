@@ -315,15 +315,33 @@ p {
   align-items: start;
 }
 
-.hero-copy h1 {
-  font-size: clamp(2.15rem, 5.1vw, 3.85rem);
-  line-height: 1.02;
-  letter-spacing: -0.035em;
-  max-width: 15ch;
+.hero-title {
+  font-size: clamp(2.05rem, 5.2vw, 4.05rem);
+  line-height: 1.03;
+  letter-spacing: -0.036em;
+  max-width: 21ch;
+  margin-bottom: clamp(24px, 3vw, 40px);
 }
 
-.hero-copy h1 .accent {
+.hero-title .accent {
   color: var(--accent);
+}
+
+.hero-cta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 20px;
+  margin-top: clamp(28px, 4vw, 44px);
+  padding-top: 22px;
+  border-top: 1px solid var(--line-2);
+}
+
+.hero-cta p {
+  font: 400 12px/1.5 var(--mono);
+  letter-spacing: 0.03em;
+  color: var(--muted);
+  max-width: 26ch;
 }
 
 .lede {
@@ -418,7 +436,7 @@ p {
   color: var(--paper);
 }
 
-.detector {
+.evcard {
   margin: 0;
   background: var(--panel);
   border: 1px solid var(--ink);
@@ -428,11 +446,11 @@ p {
   overflow: hidden;
 }
 
-.detector :focus-visible {
+.evcard :focus-visible {
   outline-color: var(--lime);
 }
 
-.detector-head {
+.evcard-head {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -471,109 +489,27 @@ p {
   }
 }
 
-.stage {
+.ev-body {
+  display: grid;
+  grid-template-columns: 1.12fr 0.88fr;
+  border-top: 1px solid var(--panel-line);
+}
+
+.ev-shot {
   position: relative;
   aspect-ratio: 16 / 9;
   background: #0b0b08;
+  border-right: 1px solid var(--panel-line);
   overflow: hidden;
 }
 
-.stage svg {
+.ev-shot svg {
   width: 100%;
   height: 100%;
 }
 
-.stage text {
+.ev-shot text {
   font-family: var(--mono);
-}
-
-.corners {
-  position: absolute;
-  inset: 12px;
-  pointer-events: none;
-}
-
-.corners::before,
-.corners::after {
-  content: "";
-  position: absolute;
-  width: 14px;
-  height: 14px;
-  border: 1px solid rgba(245, 242, 235, 0.32);
-}
-
-.corners::before {
-  top: 0;
-  left: 0;
-  border-right: 0;
-  border-bottom: 0;
-}
-
-.corners::after {
-  bottom: 0;
-  right: 0;
-  border-left: 0;
-  border-top: 0;
-}
-
-.scan {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background: linear-gradient(
-    to bottom,
-    transparent 49.4%,
-    rgba(198, 242, 78, 0.45) 50%,
-    transparent 50.6%
-  );
-  transform: translateY(-100%);
-  animation: scan 6s linear infinite;
-}
-
-@keyframes scan {
-  to {
-    transform: translateY(100%);
-  }
-}
-
-.stage-time {
-  position: absolute;
-  right: 10px;
-  bottom: 8px;
-  font-size: 9.5px;
-  letter-spacing: 0.06em;
-  color: rgba(245, 242, 235, 0.5);
-}
-
-.pose-line {
-  stroke: var(--lime);
-  stroke-width: 0.55;
-  stroke-linecap: round;
-  opacity: 0.92;
-}
-
-.joint {
-  fill: var(--lime);
-  stroke: #0b0b08;
-  stroke-width: 0.5;
-  animation: joint 3.2s var(--ease) infinite;
-}
-
-@keyframes joint {
-  0%,
-  100% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0.62;
-  }
-}
-
-.bbox {
-  fill: none;
-  stroke: rgba(245, 242, 235, 0.42);
-  stroke-width: 0.35;
-  stroke-dasharray: 2 1.6;
 }
 
 .chip-bg {
@@ -587,95 +523,93 @@ p {
   letter-spacing: 0.04em;
 }
 
-.detector-body {
-  display: grid;
-  grid-template-columns: 1.12fr 0.88fr;
-  border-top: 1px solid var(--panel-line);
+.bbox-dash {
+  fill: none;
+  stroke: rgba(245, 242, 235, 0.45);
+  stroke-width: 0.38;
+  stroke-dasharray: 2 1.6;
 }
 
-.dist {
+.lens {
+  opacity: 0;
+  transition: opacity 0.3s var(--ease);
+}
+
+.ev-meta {
+  display: grid;
+  align-content: start;
   padding: 12px;
 }
 
-.dist > p,
-.log > p {
+.ev-meta div {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+  padding-block: 6px;
+  border-bottom: 1px solid rgba(245, 242, 235, 0.07);
+  font: 400 10.5px/1.3 var(--mono);
+}
+
+.ev-meta div:last-child {
+  border-bottom: 0;
+}
+
+.ev-meta dt {
+  color: var(--panel-muted);
+  letter-spacing: 0.04em;
+}
+
+.ev-meta dd {
+  margin: 0;
+  color: var(--panel-text);
+  text-align: right;
+}
+
+.ev-meta dd.hot {
+  color: var(--lime);
+}
+
+.ev-feed {
+  padding: 10px 12px;
+  border-top: 1px solid var(--panel-line);
+}
+
+.ev-feed > p {
+  margin-bottom: 6px;
   font-size: 9.5px;
   letter-spacing: 0.11em;
   text-transform: uppercase;
   color: var(--panel-muted);
-  margin-bottom: 8px;
 }
 
-.dist ul {
+.ev-feed ol {
   display: grid;
-  gap: 5px;
 }
 
-.dist li {
+.ev-feed li {
   display: grid;
-  grid-template-columns: 72px minmax(0, 1fr) 32px;
-  align-items: center;
+  grid-template-columns: 44px minmax(0, 1fr) auto;
   gap: 8px;
-  font: 400 10.5px/1 var(--mono);
-  color: rgba(239, 236, 227, 0.82);
-}
-
-.d-bar {
-  height: 4px;
-  background: rgba(245, 242, 235, 0.12);
-  border-radius: 1px;
-  overflow: hidden;
-}
-
-.d-bar i {
-  display: block;
-  height: 100%;
-  background: var(--lime);
-  border-radius: 1px;
-  transition: width 0.45s var(--ease);
-}
-
-.d-val {
-  text-align: right;
-  color: var(--panel-muted);
-}
-
-.log {
-  padding: 12px;
-  border-left: 1px solid var(--panel-line);
-}
-
-.log ol {
-  display: grid;
-}
-
-.log li {
-  display: grid;
-  grid-template-columns: 42px minmax(0, 1fr) auto;
-  gap: 8px;
-  padding-block: 6px;
+  padding-block: 5px;
   border-bottom: 1px solid rgba(245, 242, 235, 0.07);
   font: 400 10px/1.3 var(--mono);
   color: var(--panel-muted);
 }
 
-.log li:last-child {
+.ev-feed li:last-child {
   border-bottom: 0;
 }
 
-.log li:first-child {
-  color: var(--panel-text);
-}
-
-.log li:first-child .t {
+.ev-feed .t {
   color: var(--lime);
 }
 
-.log .ev {
+.ev-feed .ev {
   color: var(--panel-text);
 }
 
-.detector-foot {
+.evcard-foot {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -1439,8 +1373,8 @@ html.js .reveal.in {
     grid-template-columns: minmax(0, 1fr);
   }
 
-  .hero-copy h1 {
-    max-width: 18ch;
+  .hero-title {
+    max-width: 22ch;
   }
 
   .split-head {
@@ -1512,21 +1446,22 @@ html.js .reveal.in {
 }
 
 @media (max-width: 720px) {
-  .hero-actions .btn {
+  .hero-actions .btn,
+  .hero-cta .btn {
     width: 100%;
   }
 
-  .detector {
+  .evcard {
     box-shadow: 6px 6px 0 rgba(22, 21, 15, 0.92);
   }
 
-  .detector-body {
+  .ev-body {
     grid-template-columns: minmax(0, 1fr);
   }
 
-  .log {
-    border-left: 0;
-    border-top: 1px solid var(--panel-line);
+  .ev-shot {
+    border-right: 0;
+    border-bottom: 1px solid var(--panel-line);
   }
 
   .platform-table thead {
@@ -1634,10 +1569,6 @@ html.js .reveal.in {
     animation-duration: 0.001ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.001ms !important;
-  }
-
-  .scan {
-    display: none;
   }
 
   html.js .reveal {

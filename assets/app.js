@@ -26,87 +26,88 @@
     });
   }
 
-  var demo = document.querySelector("[data-demo]");
+  var card = document.querySelector("[data-card]");
 
-  if (demo) {
-    var POSE = {
-      tegak: {
-        label: "Tegak",
-        bars: [
-          ["Berdiri", 96],
-          ["Berjalan", 4],
-          ["Jongkok", 0],
-          ["Melompat", 0],
+  if (card) {
+    var EVENTS = {
+      hardbrake: {
+        scene: "cabin",
+        label: "Harsh brake terdeteksi",
+        alt: "Snapshot kamar kabin saat event harsh braking",
+        meta: [
+          ["Waktu", "14:32:07"],
+          ["Kecepatan", "62 km/h"],
+          ["Perlambatan", "-4,2 m/s²"],
+          ["Pengemudi", "Terdeteksi"],
         ],
-        log: [
-          ["00:12", "Berdiri", "96%"],
-          ["00:09", "Pose stabil", "97%"],
-          ["00:04", "Kamera siap", "ok"],
-          ["00:00", "Sesi dimulai", "id"],
-        ],
-      },
-      jongkok: {
-        label: "Jongkok",
-        bars: [
-          ["Jongkok", 91],
-          ["Berdiri", 8],
-          ["Berjalan", 1],
-          ["Melompat", 0],
-        ],
-        log: [
-          ["00:18", "Jongkok", "91%"],
-          ["00:14", "Pose stabil", "88%"],
-          ["00:07", "Transisi", "12%"],
-          ["00:00", "Sesi dimulai", "id"],
+        hot: 3,
+        feed: [
+          ["14:32", "Harsh brake", "B 9821 KXD"],
+          ["14:32", "Snapshot tersimpan", "1080p"],
+          ["13:58", "Overspeed 8 detik", "B 9821 KXD"],
+          ["11:04", "Masuk geofence", "Hub Cikarang"],
         ],
       },
-      lompat: {
-        label: "Lompat",
-        bars: [
-          ["Melompat", 84],
-          ["Berjalan", 11],
-          ["Berdiri", 5],
-          ["Jongkok", 0],
+      blocked: {
+        scene: "blocked",
+        label: "Kamera tertutup",
+        alt: "Snapshot kamar kabin saat lensa kamera tertutup",
+        meta: [
+          ["Waktu", "09:14:52"],
+          ["Durasi", "18 menit"],
+          ["Cahaya masuk", "0,4%"],
+          ["Pengemudi", "Tidak terbaca"],
         ],
-        log: [
-          ["00:23", "Melompat", "84%"],
-          ["00:20", "Titik puncak", "79%"],
-          ["00:11", "Berjalan", "62%"],
-          ["00:00", "Sesi dimulai", "id"],
+        hot: 3,
+        feed: [
+          ["09:14", "Lensa tertutup", "B 9821 KXD"],
+          ["09:02", "Kamera normal", "ok"],
+          ["08:47", "Perjalanan dimulai", "Pool"],
+          ["08:45", "Kontak kendaraan", "on"],
+        ],
+      },
+      nodriver: {
+        scene: "empty",
+        label: "Kendaraan bergerak tanpa pengemudi",
+        alt: "Snapshot kamar kabin saat kursi pengemudi kosong",
+        meta: [
+          ["Waktu", "22:41:11"],
+          ["Kecepatan", "34 km/h"],
+          ["Kabin", "Kosong"],
+          ["Status", "Perlu tinjauan"],
+        ],
+        hot: 3,
+        feed: [
+          ["22:41", "Kabin kosong", "B 9821 KXD"],
+          ["22:40", "Pintu dibuka", "kiri"],
+          ["22:39", "Kendaraan bergerak", "34 km/h"],
+          ["22:31", "Mesin menyala", "idle"],
         ],
       },
     };
 
-    var barsRoot = demo.querySelector("[data-bars]");
-    var logRoot = demo.querySelector("[data-log]");
-    var live = demo.querySelector("[data-live]");
-    var stage = demo.querySelector("[data-stage]");
-    var buttons = demo.querySelectorAll("[data-pose]");
+    var shot = card.querySelector("[data-shot]");
+    var metaRoot = card.querySelector("[data-meta]");
+    var feedRoot = card.querySelector("[data-feed]");
+    var live = card.querySelector("[data-live]");
+    var buttons = card.parentNode.querySelectorAll("[data-evt]");
 
     function render(key) {
-      var data = POSE[key];
+      var data = EVENTS[key];
       if (!data) return;
 
-      stage.setAttribute("data-current", key);
-      Array.prototype.forEach.call(stage.querySelectorAll("[data-shape]"), function (g) {
-        g.style.display = g.getAttribute("data-shape") === key ? "" : "none";
+      Array.prototype.forEach.call(card.querySelectorAll("[data-scene]"), function (g) {
+        g.style.display = g.getAttribute("data-scene") === data.scene ? "" : "none";
       });
 
-      barsRoot.innerHTML = data.bars
-        .map(function (row) {
-          return (
-            '<li><span>' +
-            row[0] +
-            '</span><span class="d-bar"><i style="width:' +
-            row[1] +
-            '%"></i></span><span class="d-val">' +
-            row[1] +
-            "%</span></li>"
-          );
+      metaRoot.innerHTML = data.meta
+        .map(function (row, i) {
+          var cls = i === data.hot ? ' class="hot"' : "";
+          return "<div><dt>" + row[0] + "</dt><dd" + cls + ">" + row[1] + "</dd></div>";
         })
         .join("");
 
-      logRoot.innerHTML = data.log
+      feedRoot.innerHTML = data.feed
         .map(function (row) {
           return (
             '<li><span class="t">' +
@@ -120,32 +121,24 @@
         })
         .join("");
 
-      if (live) {
-        live.textContent = "Aksi: " + data.label;
-      }
+      live.textContent = data.label;
+      shot.setAttribute("aria-label", data.alt);
 
       Array.prototype.forEach.call(buttons, function (btn) {
         btn.setAttribute(
           "aria-pressed",
-          btn.getAttribute("data-pose") === key ? "true" : "false"
+          btn.getAttribute("data-evt") === key ? "true" : "false"
         );
       });
-
-      if (stage) {
-        stage.setAttribute(
-          "aria-label",
-          "Pratinjau deteksi pose, aksi terdeteksi: " + data.label
-        );
-      }
     }
 
     Array.prototype.forEach.call(buttons, function (btn) {
       btn.addEventListener("click", function () {
-        render(btn.getAttribute("data-pose"));
+        render(btn.getAttribute("data-evt"));
       });
     });
 
-    render("tegak");
+    render("hardbrake");
   }
 
   var tocLinks = document.querySelectorAll(".toc a[href^='#']");

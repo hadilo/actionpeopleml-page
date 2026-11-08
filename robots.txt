@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://hadilo.github.io/actionpeopleml-page/sitemap.xml
