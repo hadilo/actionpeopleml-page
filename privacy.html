@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Kebijakan Privasi — Action People ML</title>
-<meta name="description" content="Kebijakan privasi modul penglihatan on-device Action People ML untuk armada telematics: video kamera diproses di dalam kendaraan dan tidak diunggah. Penjelasan data, dasar pemrosesan, dan hak subjek data.">
+<meta name="description" content="Kebijakan privasi aplikasi Action People ML: frame kamera diproses di perangkat dan tidak pernah diunggah. Penjelasan data yang diproses, izin yang diminta, dan cara menghapus data Anda.">
 <meta name="robots" content="index, follow">
 <meta name="theme-color" content="#f5f2eb">
 <link rel="canonical" href="https://hadilo.github.io/actionpeopleml-page/privacy.html">
@@ -12,7 +12,7 @@
 <meta property="og:site_name" content="Action People ML">
 <meta property="og:locale" content="id_ID">
 <meta property="og:title" content="Kebijakan Privasi — Action People ML">
-<meta property="og:description" content="Video kamera diproses di dalam kendaraan, tidak diunggah. Penjelasan lengkap data yang diproses dan hak subjek data.">
+<meta property="og:description" content="Frame kamera diproses di perangkat dan tidak pernah diunggah. Penjelasan data yang diproses dan cara menghapusnya.">
 <meta property="og:url" content="https://hadilo.github.io/actionpeopleml-page/privacy.html">
 <meta property="og:image" content="https://hadilo.github.io/actionpeopleml-page/assets/og.png">
 <meta name="twitter:card" content="summary_large_image">
@@ -35,10 +35,10 @@
     <nav class="site-nav" aria-label="Navigasi utama">
       <a href="index.html#kemampuan">Kemampuan</a>
       <a href="index.html#cara-kerja">Cara kerja</a>
-      <a href="index.html#vendor">Untuk vendor</a>
+      <a href="index.html#unduh">Unduh</a>
       <a href="privacy.html" aria-current="page">Privasi</a>
     </nav>
-    <a class="btn btn-primary head-cta" href="index.html#pilot">Coba pilot</a>
+    <a class="btn btn-primary head-cta" href="index.html#unduh">Unduh</a>
   </div>
 </header>
 
@@ -58,16 +58,16 @@
       <h2>Ringkasan singkat</h2>
       <ul>
         <li>
-          <strong>Video tetap di kendaraan</strong>
-          <p>Frame kamera diproses di perangkat dan dibuang. Tidak ada unggahan video.</p>
+          <strong>Frame tetap di perangkat</strong>
+          <p>Kamera diproses di dalam ponsel dan tidak pernah diunggah ke server.</p>
         </li>
         <li>
-          <strong>Operator armada adalah pengendali data</strong>
-          <p>Kami memproses data pengemudi atas instruksi operator armada, bukan untuk diri kami sendiri.</p>
+          <strong>Tidak perlu akun</strong>
+          <p>Tidak ada pendaftaran, tidak ada SDK analitik, tidak ada iklan.</p>
         </li>
         <li>
-          <strong>Subjek data tetap punya hak</strong>
-          <p>Pengemudi dapat meminta informasi, salinan, koreksi, dan penghapusan melalui operator armada.</p>
+          <strong>Anda yang menyimpan</strong>
+          <p>Rekaman hanya masuk ke galeri Anda sendiri, dan bisa dihapus kapan saja.</p>
         </li>
       </ul>
     </div>
@@ -77,14 +77,14 @@
       <nav class="toc" aria-label="Daftar isi">
         <h2>Daftar isi</h2>
         <ol>
-          <li><a href="#ruang-lingkup">Ruang lingkup dan peran</a></li>
-          <li><a href="#data">Data yang kami proses</a></li>
+          <li><a href="#ruang-lingkup">Ruang lingkup</a></li>
+          <li><a href="#izin">Izin yang diminta</a></li>
           <li><a href="#kamera">Pemrosesan kamera</a></li>
-          <li><a href="#dasar">Dasar pemrosesan</a></li>
+          <li><a href="#data">Data yang kami proses</a></li>
           <li><a href="#berbagi">Berbagi dan pihak ketiga</a></li>
-          <li><a href="#penyimpanan">Penyimpanan dan retensi</a></li>
-          <li><a href="#hak">Hak subjek data</a></li>
-          <li><a href="#transparansi">Transparansi ke pengemudi</a></li>
+          <li><a href="#penyimpanan">Penyimpanan dan penghapusan</a></li>
+          <li><a href="#hak">Hak Anda</a></li>
+          <li><a href="#anak">Anak-anak</a></li>
           <li><a href="#keamanan">Keamanan</a></li>
           <li><a href="#perubahan">Perubahan kebijakan</a></li>
           <li><a href="#kontak">Kontak</a></li>
@@ -94,175 +94,151 @@
       <article class="policy">
 
         <section class="policy-sec" id="ruang-lingkup">
-          <h2><span class="n">01</span> Ruang lingkup dan peran</h2>
+          <h2><span class="n">01</span> Ruang lingkup</h2>
           <p>
-            Action People ML menyediakan modul penglihatan berbasis kamera yang tertanam
-            pada kendaraan armada. Kebijakan ini berlaku untuk pemrosesan data oleh modul
-            tersebut, aplikasi pendamping di Android, iOS, macOS, Windows, dan web, serta
-            situs ini.
+            Kebijakan ini berlaku untuk aplikasi Action People ML di Android dan iOS, serta
+            situs ini. Aplikasi mengklasifikasikan satu frame kamera sebagai
+            <em>Sleeping</em> atau <em>Drinking</em> dan menampilkan persentase keyakinan.
+            Kebijakan ini tidak berlaku untuk aplikasi lain atau situs pihak ketiga.
           </p>
           <p>
-            Dalam sebagian besar penerapan, <strong>operator armada adalah pengendali
-            data</strong> dan kami berperan sebagai <strong>prosesor</strong>. Kami
-            memproses data pengemudi hanya sesuai instruksi tertulis operator, termasuk
-            kebijakan retensi dan siapa yang boleh melihat hasilnya. Operator armada
-            bertanggung jawab memberi pemberitahuan kepada pengemudi dan memastikan
-            dasar hukumnya terpenuhi di wilayah operasinya.
+            Dengan memasang dan memakai aplikasi, Anda menyetujui praktik yang dijelaskan di
+            sini.
           </p>
         </section>
 
-        <section class="policy-sec" id="data">
-          <h2><span class="n">02</span> Data yang kami proses</h2>
-
-          <h3>Data yang tetap di perangkat kendaraan</h3>
+        <section class="policy-sec" id="izin">
+          <h2><span class="n">02</span> Izin yang diminta</h2>
           <ul>
-            <li>Frame kamera mentah dan hasil klasifikasi per frame.</li>
-            <li>Model inferensi dan berkas konfigurasi perangkat.</li>
-            <li>Snapshot event, sampai dikirim atau dihapus sesuai kebijakan retensi operator.</li>
+            <li>
+              <strong>Kamera.</strong> Dipakai untuk pratinjau dan pengambilan frame yang
+              akan diklasifikasi. Kamera hanya aktif saat layar kamera terbuka.
+            </li>
+            <li>
+              <strong>Penyimpanan atau galeri.</strong> Hanya diminta saat Anda memilih untuk
+              menyimpan rekaman. Di Android versi lama, izin ini diperlukan agar klip bisa
+              ditulis ke galeri.
+            </li>
           </ul>
-
-          <h3>Data yang dikirim ke platform</h3>
-          <ul>
-            <li>Metadata event: jenis, waktu, pengenal kendaraan, dan tingkat keyakinan.</li>
-            <li>Snapshot terpilih yang terkait dengan event tertentu, bila operator mengaktifkannya.</li>
-            <li>Status perangkat: versi aplikasi, versi model, kesehatan kamera.</li>
-          </ul>
-
-          <h3>Data akun dan administratif</h3>
-          <ul>
-            <li>Alamat email pengguna dashboard dan peran aksesnya.</li>
-            <li>Catatan langganan serta riwayat penagihan pada tingkat organisasi.</li>
-            <li>Log teknis dan diagnostik tanpa isi frame kamera.</li>
-          </ul>
-
           <p>
-            Kami tidak memproses data lokasi secara mandiri; data posisi tetap berada pada
-            platform telematics operator. Kami juga tidak membuat templat biometrik dan
-            tidak melakukan identifikasi wajah.
+            Aplikasi tidak meminta akses lokasi, kontak, mikrofon, atau nomor telepon.
+            Rekaman dibuat tanpa audio. Kalau Anda menolak izin kamera, Anda masih bisa
+            mengklasifikasi foto dari galeri.
           </p>
         </section>
 
         <section class="policy-sec" id="kamera">
           <h2><span class="n">03</span> Pemrosesan kamera</h2>
           <p>
-            Kamera aktif hanya saat kendaraan dalam kondisi pemantauan yang ditentukan
-            operator. Frame diproses di memori perangkat untuk menghasilkan event, lalu
-            dibuang. Modul ini tidak memiliki jalur unggahan video: rekaman mentah tidak
-            dikirim ke server kami maupun ke pihak ketiga.
+            Frame kamera diproses di memori perangkat untuk menghasilkan label dan persentase
+            keyakinan, lalu dibuang. Aplikasi tidak mengunggah frame ke server kami maupun
+            pihak ketiga. Model tertanam di dalam aplikasi, sehingga fitur ini tetap berjalan
+            tanpa koneksi internet.
           </p>
           <p>
-            Sebelum klasifikasi dijalankan, modul melakukan pemeriksaan keberadaan orang.
-            Jika tidak ada orang di dalam frame, klasifikasi dilewati dan tidak ada data
-            perilaku yang dihasilkan.
+            Sebelum klasifikasi, aplikasi memeriksa keberadaan orang di dalam frame. Kalau
+            tidak ada orang, klasifikasi dilewati dan status menampilkan
+            <em>No Person Detected</em>. Pemeriksaan ini memakai API deteksi bawaan platform:
+            ML Kit di Android dan Vision di iOS.
           </p>
           <p>
-            Inferensi berjalan tanpa koneksi internet. Model diunduh sekali ke perangkat
-            dan diperbarui melalui mekanisme yang dikendalikan operator. Karena pemrosesan
-            bersifat lokal, frame tidak dapat keluar dari kendaraan sekalipun terjadi
-            gangguan jaringan.
+            Aplikasi tidak membuat templat biometrik, tidak mengidentifikasi identitas
+            seseorang, dan tidak mengenali wajah antar-frame.
           </p>
           <p>
-            Beberapa platform menyediakan akselerasi perangkat keras (NNAPI pada Android,
-            Metal pada iOS). Proses tersebut tetap berjalan di dalam perangkat.
+            Beberapa perangkat menyediakan akselerasi perangkat keras untuk inferensi. Proses
+            itu tetap berjalan di dalam perangkat Anda.
           </p>
         </section>
 
-        <section class="policy-sec" id="dasar">
-          <h2><span class="n">04</span> Dasar pemrosesan</h2>
-          <p>
-            Dasar hukum ditentukan oleh operator armada sebagai pengendali data. Kami
-            membantu operator memenuhi dasar tersebut melalui konfigurasi produk:
-          </p>
+        <section class="policy-sec" id="data">
+          <h2><span class="n">04</span> Data yang kami proses</h2>
+          <h3>Data yang tetap di perangkat</h3>
           <ul>
-            <li><strong>Kepentingan sah dalam keselamatan armada.</strong> Mencatat event berkendara berisiko, dengan data yang dibatasi seminimal mungkin.</li>
-            <li><strong>Pelaksanaan kontrak.</strong> Menyediakan fungsi modul yang tercantum dalam perjanjian layanan.</li>
-            <li><strong>Kewajiban hukum.</strong> Menyimpan catatan tertentu bila diwajibkan peraturan yang berlaku.</li>
-            <li><strong>Persetujuan.</strong> Untuk fitur yang memerlukannya menurut hukum setempat, termasuk pemberitahuan kepada pengemudi.</li>
+            <li>Frame kamera selama diproses, lalu dibuang.</li>
+            <li>Model klasifikasi dan pengaturan aplikasi.</li>
+            <li>Rekaman yang Anda simpan sendiri, di galeri perangkat.</li>
           </ul>
+          <h3>Data yang tidak kami kumpulkan</h3>
+          <ul>
+            <li>Tidak ada akun, nama, atau alamat surel yang diminta aplikasi.</li>
+            <li>Tidak ada frame kamera atau hasil klasifikasi yang dikirim keluar.</li>
+            <li>Tidak ada SDK iklan maupun analitik pihak ketiga di dalam aplikasi.</li>
+          </ul>
+          <h3>Situs ini</h3>
+          <p>
+            Situs ini adalah halaman statis. Situs memuat jenis huruf dari Google Fonts,
+            sehingga browser dapat menghubungi server Google yang menerima alamat IP Anda.
+            Situs tidak memasang cookie pelacakan.
+          </p>
         </section>
 
         <section class="policy-sec" id="berbagi">
           <h2><span class="n">05</span> Berbagi dan pihak ketiga</h2>
           <p>
-            Kami tidak menjual data dan tidak memakainya untuk iklan. Data hanya dibagikan
-            kepada:
+            Kami tidak menjual data dan tidak memakainya untuk iklan. Karena aplikasi tidak
+            mengumpulkan data pribadi, tidak ada data pribadi yang kami bagikan.
           </p>
-          <ul>
-            <li>Operator armada dan vendor telematics yang menjadi mitra penerapan.</li>
-            <li>Penyedia infrastruktur dan pemantauan kerusakan, dengan data teknis terbatas.</li>
-            <li>Otoritas berwenang, bila ada permintaan sah berdasarkan hukum.</li>
-          </ul>
           <p>
-            Situs ini memuat jenis huruf dari Google Fonts; saat halaman dibuka, browser
-            dapat menghubungi server Google yang menerima alamat IP Anda. Modul di kendaraan
-            tidak memuat skrip periklanan maupun pelacak analitik pihak ketiga.
+            Distribusi aplikasi dilakukan melalui Google Play dan App Store, yang memproses
+            data pembelian dan diagnostik sesuai kebijakan masing-masing. Pemeriksaan
+            keberadaan orang memakai API deteksi milik platform yang berjalan di perangkat.
           </p>
         </section>
 
         <section class="policy-sec" id="penyimpanan">
-          <h2><span class="n">06</span> Penyimpanan dan retensi</h2>
+          <h2><span class="n">06</span> Penyimpanan dan penghapusan</h2>
           <ul>
             <li>Frame kamera tidak disimpan; diproses di memori lalu dibuang.</li>
-            <li>Snapshot event disimpan sesuai durasi yang ditetapkan operator, dengan opsi tanpa penyimpanan sama sekali.</li>
-            <li>Metadata event disimpan selama masa perjanjian layanan, lalu dihapus dalam 30 hari setelah permintaan.</li>
-            <li>Log teknis disimpan maksimal 90 hari.</li>
-            <li>Catatan penagihan disimpan sesuai kewajiban perpajakan yang berlaku.</li>
+            <li>Rekaman hanya ada di galeri Anda sampai Anda menghapusnya sendiri.</li>
+            <li>Menghapus aplikasi menghapus pengaturan dan data lokal yang terkait.</li>
+            <li>Karena tidak ada akun, tidak ada data di server yang perlu dihapus.</li>
           </ul>
         </section>
 
         <section class="policy-sec" id="hak">
-          <h2><span class="n">07</span> Hak subjek data</h2>
+          <h2><span class="n">07</span> Hak Anda</h2>
           <p>
-            Pengemudi dan individu lain yang terekam memiliki hak untuk meminta informasi,
-            salinan, koreksi, pembatasan, dan penghapusan data pribadi mereka, serta
-            mengajukan keberatan atas pemrosesan tertentu. Karena operator armada adalah
-            pengendali data, permintaan diteruskan melalui operator.
+            Anda dapat mencabut izin kamera atau penyimpanan kapan saja lewat pengaturan
+            perangkat. Aplikasi akan menampilkan status yang sesuai dan tetap bisa dipakai
+            lewat pilihan foto.
           </p>
           <p>
-            Kami membantu operator menanggapi permintaan tersebut. Bila operator tidak dapat
-            dihubungi, permintaan dapat dikirim ke
-            <a href="mailto:privasi@actionpeople.ml">privasi@actionpeople.ml</a> dan akan
-            kami teruskan. Kami menanggapi dalam 30 hari.
+            Kalau Anda punya pertanyaan tentang data atau ingin menyampaikan keluhan, hubungi
+            <a href="mailto:privasi@actionpeople.ml">privasi@actionpeople.ml</a>. Kami
+            menanggapi dalam 30 hari.
           </p>
         </section>
 
-        <section class="policy-sec" id="transparansi">
-          <h2><span class="n">08</span> Transparansi ke pengemudi</h2>
+        <section class="policy-sec" id="anak">
+          <h2><span class="n">08</span> Anak-anak</h2>
           <p>
-            Modul ini dirancang agar keberadaannya dapat diketahui: indikator aktif pada
-            perangkat, pemberitahuan pada dashboard operator, dan dokumentasi yang bisa
-            diserahkan kepada pengemudi. Kami menyarankan operator memasang pemberitahuan
-            fisik di kabin dan mencantumkan pemantauan dalam peraturan perusahaan.
-          </p>
-          <p>
-            Kami tidak menganjurkan penggunaan modul untuk pemantauan tersembunyi, penilaian
-            di luar konteks keselamatan berkendara, atau pengambilan keputusan kepegawaian
-            secara otomatis tanpa peninjauan manusia.
+            Aplikasi tidak ditujukan untuk anak di bawah 13 tahun. Karena aplikasi tidak
+            mengumpulkan data pribadi dan tidak meminta akun, tidak ada data anak yang kami
+            simpan.
           </p>
         </section>
 
         <section class="policy-sec" id="keamanan">
           <h2><span class="n">09</span> Keamanan</h2>
           <p>
-            Data yang berpindah dari kendaraan ke platform dikirim melalui koneksi
-            terenkripsi dan diautentikasi per perangkat. Akses dashboard dibatasi per peran.
-            Karena sebagian besar risiko dihilangkan dengan tidak mengumpulkan video, kami
-            memilih membatasi data sejak awal alih-alih mengandalkan pengamanan setelahnya.
+            Risiko utama aplikasi kamera adalah kebocoran gambar. Kami menghindarinya dengan
+            tidak mengumpulkan gambar sama sekali: tidak ada unggahan, tidak ada penyimpanan
+            di server, dan tidak ada jalur keluar untuk frame kamera.
           </p>
         </section>
 
         <section class="policy-sec" id="perubahan">
           <h2><span class="n">10</span> Perubahan kebijakan</h2>
           <p>
-            Kami dapat memperbarui kebijakan ini. Perubahan penting diberitahukan kepada
-            operator armada sebelum berlaku. Tanggal &ldquo;Berlaku&rdquo; di atas
-            menunjukkan versi terbaru.
+            Kami dapat memperbarui kebijakan ini. Perubahan penting akan tercatat pada catatan
+            rilis aplikasi. Tanggal &ldquo;Berlaku&rdquo; di atas menunjukkan versi terbaru.
           </p>
         </section>
 
         <section class="policy-sec" id="kontak">
           <h2><span class="n">11</span> Kontak</h2>
-          <p>Pertanyaan tentang kebijakan ini atau permintaan terkait data pribadi:</p>
+          <p>Pertanyaan tentang kebijakan ini:</p>
           <div class="contact-box">
             <p><strong>Action People ML</strong></p>
             <p>Privasi: <a href="mailto:privasi@actionpeople.ml">privasi@actionpeople.ml</a></p>
@@ -273,22 +249,20 @@
         <div class="en-summary">
           <h2>English summary</h2>
           <p>
-            Action People ML provides an on-device vision module for fleet vehicles.
-            Camera frames are processed in memory on the vehicle and are never uploaded
-            or stored as video. Only event metadata and operator-selected snapshots leave
-            the vehicle. The fleet operator acts as data controller and we act as processor;
-            drivers may exercise their access, correction, and deletion rights through the
-            operator, or contact
+            Action People ML classifies a single camera frame as Sleeping or Drinking and
+            shows a confidence percentage. All processing happens on your device; camera
+            frames are never uploaded and the app requires no account. Recordings are saved
+            only to your own gallery. The app contains no advertising or analytics SDKs. The
+            website loads Google Fonts, which may receive your IP address. Questions:
             <a href="mailto:privasi@actionpeople.ml">privasi@actionpeople.ml</a>.
             This Indonesian text is the controlling version.
           </p>
         </div>
 
         <p class="doc-note">
-          Catatan template: ganti alamat surel, nama badan hukum, dan tanggal berlaku
-          sebelum publikasi. Sesuaikan bagian retensi, pihak ketiga, dan peran pengendali
-          data dengan kontrak nyata Anda, lalu tinjau dengan penasihat hukum untuk wilayah
-          operasi armada.
+          Catatan template: ganti alamat surel dan nama badan hukum sebelum publikasi.
+          Sesuaikan bagian izin dan pihak ketiga bila Anda menambahkan fitur baru, lalu
+          tinjau dengan penasihat hukum untuk wilayah distribusi aplikasi.
         </p>
 
       </article>
@@ -303,19 +277,19 @@
         <img src="assets/mark.svg" alt="" width="18" height="18">
         Action People ML
       </a>
-      <p class="foot-note">Lapisan AI penglihatan on-device untuk armada telematics.</p>
+      <p class="foot-note">Klasifikasi Sleeping atau Drinking, sepenuhnya di perangkat.</p>
     </div>
 
     <nav class="foot-links" aria-label="Navigasi kaki halaman">
       <a href="index.html#kemampuan">Kemampuan</a>
-      <a href="index.html#vendor">Untuk vendor</a>
+      <a href="index.html#unduh">Unduh</a>
       <a href="privacy.html">Kebijakan privasi</a>
       <a href="mailto:halo@actionpeople.ml">Kontak</a>
     </nav>
 
     <p class="foot-meta">
       &copy; <span id="year">2026</span> Action People ML<br>
-      Dibuat untuk berjalan lokal
+      Bukan perangkat medis
     </p>
   </div>
 </footer>

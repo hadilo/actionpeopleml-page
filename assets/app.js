@@ -29,59 +29,59 @@
   var card = document.querySelector("[data-card]");
 
   if (card) {
-    var EVENTS = {
-      hardbrake: {
-        scene: "cabin",
-        label: "Harsh brake terdeteksi",
-        alt: "Snapshot kamar kabin saat event harsh braking",
+    var STATES = {
+      sleeping: {
+        scene: "sleeping",
+        label: "Sleeping 73%",
+        alt: "Ilustrasi layar kamera dengan hasil Sleeping 73 persen",
         meta: [
-          ["Waktu", "14:32:07"],
-          ["Kecepatan", "62 km/h"],
-          ["Perlambatan", "-4,2 m/s²"],
-          ["Pengemudi", "Terdeteksi"],
+          ["Status", "Sleeping"],
+          ["Keyakinan", "73%"],
+          ["Orang terdeteksi", "Ya"],
+          ["Sumber", "Kamera"],
         ],
-        hot: 3,
+        hot: 1,
         feed: [
-          ["14:32", "Harsh brake", "B 9821 KXD"],
-          ["14:32", "Snapshot tersimpan", "1080p"],
-          ["13:58", "Overspeed 8 detik", "B 9821 KXD"],
-          ["11:04", "Masuk geofence", "Hub Cikarang"],
+          ["Status", "Sleeping 73%", "live"],
+          ["Orang", "Terdeteksi", "ya"],
+          ["Model", "Siap", "lokal"],
+          ["Frame", "Diproses", "di perangkat"],
         ],
       },
-      blocked: {
-        scene: "blocked",
-        label: "Kamera tertutup",
-        alt: "Snapshot kamar kabin saat lensa kamera tertutup",
+      drinking: {
+        scene: "drinking",
+        label: "Drinking 87%",
+        alt: "Ilustrasi layar kamera dengan hasil Drinking 87 persen",
         meta: [
-          ["Waktu", "09:14:52"],
-          ["Durasi", "18 menit"],
-          ["Cahaya masuk", "0,4%"],
-          ["Pengemudi", "Tidak terbaca"],
+          ["Status", "Drinking"],
+          ["Keyakinan", "87%"],
+          ["Orang terdeteksi", "Ya"],
+          ["Sumber", "Kamera"],
         ],
-        hot: 3,
+        hot: 1,
         feed: [
-          ["09:14", "Lensa tertutup", "B 9821 KXD"],
-          ["09:02", "Kamera normal", "ok"],
-          ["08:47", "Perjalanan dimulai", "Pool"],
-          ["08:45", "Kontak kendaraan", "on"],
+          ["Status", "Drinking 87%", "live"],
+          ["Orang", "Terdeteksi", "ya"],
+          ["Model", "Siap", "lokal"],
+          ["Frame", "Diproses", "di perangkat"],
         ],
       },
-      nodriver: {
+      noperson: {
         scene: "empty",
-        label: "Kendaraan bergerak tanpa pengemudi",
-        alt: "Snapshot kamar kabin saat kursi pengemudi kosong",
+        label: "No Person Detected",
+        alt: "Ilustrasi layar kamera saat tidak ada orang di dalam frame",
         meta: [
-          ["Waktu", "22:41:11"],
-          ["Kecepatan", "34 km/h"],
-          ["Kabin", "Kosong"],
-          ["Status", "Perlu tinjauan"],
+          ["Status", "No Person Detected"],
+          ["Keyakinan", "—"],
+          ["Orang terdeteksi", "Tidak"],
+          ["Klasifikasi", "Dilewati"],
         ],
-        hot: 3,
+        hot: 0,
         feed: [
-          ["22:41", "Kabin kosong", "B 9821 KXD"],
-          ["22:40", "Pintu dibuka", "kiri"],
-          ["22:39", "Kendaraan bergerak", "34 km/h"],
-          ["22:31", "Mesin menyala", "idle"],
+          ["Status", "No Person Detected", "gate"],
+          ["Orang", "Tidak ada", "tidak"],
+          ["Model", "Tidak dijalankan", "hemat"],
+          ["Frame", "Dilewati", "di perangkat"],
         ],
       },
     };
@@ -90,14 +90,15 @@
     var metaRoot = card.querySelector("[data-meta]");
     var feedRoot = card.querySelector("[data-feed]");
     var live = card.querySelector("[data-live]");
-    var buttons = card.parentNode.querySelectorAll("[data-evt]");
+    var buttons = card.parentNode.querySelectorAll("[data-state]");
 
     function render(key) {
-      var data = EVENTS[key];
+      var data = STATES[key];
       if (!data) return;
 
       Array.prototype.forEach.call(card.querySelectorAll("[data-scene]"), function (g) {
-        g.style.display = g.getAttribute("data-scene") === data.scene ? "" : "none";
+        var shown = g.getAttribute("data-scene") === data.scene;
+        g.style.display = shown ? "inline" : "none";
       });
 
       metaRoot.innerHTML = data.meta
@@ -127,18 +128,18 @@
       Array.prototype.forEach.call(buttons, function (btn) {
         btn.setAttribute(
           "aria-pressed",
-          btn.getAttribute("data-evt") === key ? "true" : "false"
+          btn.getAttribute("data-state") === key ? "true" : "false"
         );
       });
     }
 
     Array.prototype.forEach.call(buttons, function (btn) {
       btn.addEventListener("click", function () {
-        render(btn.getAttribute("data-evt"));
+        render(btn.getAttribute("data-state"));
       });
     });
 
-    render("hardbrake");
+    render("sleeping");
   }
 
   var tocLinks = document.querySelectorAll(".toc a[href^='#']");

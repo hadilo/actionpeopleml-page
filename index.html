@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Action People ML — Lapisan AI kamera untuk armada telematics</title>
-<meta name="description" content="Telemetri tahu kecepatan, tapi tidak tahu siapa yang duduk di belakang kemudi. Action People ML menambahkan penglihatan on-device ke armada GPS: snapshot per event, integritas kamera, dan sinyal distraksi. Tanpa video keluar dari kendaraan.">
-<meta name="keywords" content="AI kamera kabin armada, telematics AI, deteksi distraksi pengemudi, fleet safety kamera, AI on-device armada, GPS telematics Indonesia, safety scoring sopir">
+<title>Action People ML — Klasifikasi Tidur atau Minum, sepenuhnya di perangkat</title>
+<meta name="description" content="Arahkan kamera ke seseorang, dan Action People ML menampilkan apakah frame itu lebih mirip Sleeping atau Drinking, lengkap dengan persentase keyakinan. Model berjalan di ponsel, frame kamera tidak pernah diunggah.">
+<meta name="keywords" content="aplikasi klasifikasi kamera, on-device machine learning, klasifikasi gambar offline, Action People ML">
 <meta name="author" content="Action People ML">
 <meta name="robots" content="index, follow, max-image-preview:large">
 <meta name="theme-color" content="#f5f2eb">
@@ -14,16 +14,16 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Action People ML">
 <meta property="og:locale" content="id_ID">
-<meta property="og:title" content="Action People ML — Lapisan AI kamera untuk armada telematics">
-<meta property="og:description" content="Telemetri tahu kecepatan. Tidak tahu siapa yang di belakang kemudi. Tambahkan penglihatan on-device ke armada GPS: snapshot per event, integritas kamera, sinyal distraksi.">
+<meta property="og:title" content="Action People ML — Klasifikasi Tidur atau Minum, sepenuhnya di perangkat">
+<meta property="og:description" content="Arahkan kamera, lihat hasilnya. Klasifikasi Sleeping atau Drinking berjalan di ponsel, frame kamera tidak pernah diunggah.">
 <meta property="og:url" content="https://hadilo.github.io/actionpeopleml-page/">
 <meta property="og:image" content="https://hadilo.github.io/actionpeopleml-page/assets/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Action People ML — lapisan AI kamera on-device untuk armada telematics">
+<meta property="og:image:alt" content="Action People ML — klasifikasi Sleeping atau Drinking di perangkat">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Action People ML — Lapisan AI kamera untuk armada telematics">
-<meta name="twitter:description" content="Telemetri tahu kecepatan. Tidak tahu siapa yang di belakang kemudi. Penglihatan on-device untuk armada GPS.">
+<meta name="twitter:title" content="Action People ML — Klasifikasi Tidur atau Minum, sepenuhnya di perangkat">
+<meta name="twitter:description" content="Arahkan kamera, lihat hasilnya. Semua berjalan lokal di ponsel.">
 <meta name="twitter:image" content="https://hadilo.github.io/actionpeopleml-page/assets/og.png">
 
 <link rel="icon" href="assets/mark.svg" type="image/svg+xml">
@@ -43,26 +43,26 @@
       "url": "https://hadilo.github.io/actionpeopleml-page/",
       "logo": "https://hadilo.github.io/actionpeopleml-page/assets/mark.svg",
       "email": "halo@actionpeople.ml",
-      "description": "Lapisan AI penglihatan on-device untuk armada telematics: peristiwa berbasis kamera tanpa mengirim video ke cloud."
+      "description": "Aplikasi klasifikasi kamera yang berjalan sepenuhnya di perangkat."
     },
     {
       "@type": "SoftwareApplication",
       "name": "Action People ML",
-      "applicationCategory": "BusinessApplication",
-      "operatingSystem": "Android, iOS, Windows, macOS, Web",
-      "description": "Modul penglihatan on-device untuk platform telematics armada. Menghasilkan event dan snapshot dari kamera kabin tanpa mengunggah video.",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Android, iOS",
+      "description": "Mengklasifikasikan frame kamera sebagai Sleeping atau Drinking dengan persentase keyakinan. Inferensi berjalan di perangkat; frame kamera tidak diunggah.",
       "featureList": [
-        "Snapshot otomatis per event telemetri",
-        "Integritas kamera: deteksi kamera tertutup atau dimatikan",
-        "Deteksi ada tidaknya pengemudi",
-        "Sinyal distraksi: makan, minum, telepon",
-        "Inferensi on-device, bekerja tanpa koneksi internet"
+        "Klasifikasi langsung dari kamera",
+        "Persentase keyakinan untuk setiap frame",
+        "Pemeriksaan keberadaan orang sebelum klasifikasi",
+        "Rekam klip singkat dan simpan ke galeri",
+        "Klasifikasi foto dari galeri sebagai alternatif"
       ],
       "offers": {
         "@type": "Offer",
         "price": "0",
         "priceCurrency": "IDR",
-        "description": "Program pilot armada: 5 kendaraan selama 1 bulan tanpa biaya."
+        "description": "Gratis, tanpa akun dan tanpa SDK iklan."
       },
       "publisher": { "@id": "https://hadilo.github.io/actionpeopleml-page/#org" }
     },
@@ -71,34 +71,34 @@
       "mainEntity": [
         {
           "@type": "Question",
-          "name": "Apakah video kamera dikirim ke server?",
+          "name": "Apakah frame kamera diunggah ke server?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Tidak. Inferensi berjalan di perangkat di dalam kendaraan. Yang keluar dari kendaraan hanya metadata event dan snapshot terpilih sesuai kebijakan Anda."
+            "text": "Tidak. Model tertanam di dalam aplikasi dan inferensi berjalan di perangkat, sehingga frame kamera tidak pernah dikirim keluar ponsel."
           }
         },
         {
           "@type": "Question",
-          "name": "Apakah modul ini bekerja tanpa internet?",
+          "name": "Apakah aplikasi bisa dipakai tanpa internet?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Ya. Deteksi berjalan offline. Sinkronisasi event dilakukan saat kendaraan kembali ke jaringan, sehingga cocok untuk haul road, area tambang, dan rute terpencil."
+            "text": "Ya. Setelah aplikasi terpasang, klasifikasi berjalan tanpa koneksi internet karena seluruh model sudah ada di perangkat."
           }
         },
         {
           "@type": "Question",
-          "name": "Apakah ini menggantikan platform telematics yang sudah ada?",
+          "name": "Apa yang terjadi kalau tidak ada orang di dalam frame?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Tidak. Modul ini melengkapi platform yang sudah berjalan. Vendor telematics menambahkan lapisan penglihatan ke event yang sudah mereka deteksi, tanpa mengganti hardware maupun dashboard."
+            "text": "Aplikasi memeriksa keberadaan orang sebelum klasifikasi. Bila tidak ada orang, klasifikasi dilewati dan status menampilkan No Person Detected."
           }
         },
         {
           "@type": "Question",
-          "name": "Apakah sistem ini mendeteksi kelelahan pengemudi?",
+          "name": "Apakah aplikasi ini perangkat medis?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Deteksi kelelahan berada di jalur pengembangan dan belum tersedia untuk produksi. Fitur yang tersedia saat ini adalah snapshot per event, integritas kamera, deteksi keberadaan pengemudi, dan sinyal distraksi."
+            "text": "Bukan. Aplikasi ini menampilkan hasil klasifikasi gambar dan tidak membuat keputusan keselamatan atau diagnosis sendiri."
           }
         }
       ]
@@ -120,10 +120,10 @@
     <nav class="site-nav" aria-label="Navigasi utama">
       <a href="#kemampuan">Kemampuan</a>
       <a href="#cara-kerja">Cara kerja</a>
-      <a href="#vendor">Untuk vendor</a>
+      <a href="#unduh">Unduh</a>
       <a href="#faq">FAQ</a>
     </nav>
-    <a class="btn btn-primary head-cta" href="#pilot">Coba pilot</a>
+    <a class="btn btn-primary head-cta" href="#unduh">Unduh</a>
   </div>
 </header>
 
@@ -133,97 +133,91 @@
     <div class="container">
 
       <div class="spec">
-        <span>Modul penglihatan armada</span>
-        <span>On-device inference</span>
-        <span>Tanpa unggah video</span>
-        <span>Bekerja offline</span>
+        <span>Aplikasi kamera</span>
+        <span>Klasifikasi di perangkat</span>
+        <span>Tanpa unggah frame</span>
+        <span>Bisa offline</span>
       </div>
 
       <h1 class="hero-title" id="hero-title">
-        Telemetri tahu kecepatan.<br>
-        Bukan siapa yang<br>
-        <span class="accent">di belakang kemudi.</span>
+        Arahkan kamera.<br>
+        Lihat apakah frame itu<br>
+        <span class="accent">Sleeping atau Drinking.</span>
       </h1>
 
       <div class="hero-grid">
         <div class="hero-copy">
           <p class="lede">
-            Armada Anda sudah tahu kapan mengerem mendadak dan di mana truk berada.
-            Action People ML menambahkan satu hal yang tidak bisa dibaca sensor:
-            apa yang terjadi di dalam kabin. Diproses di kendaraan, dikirim sebagai
-            event, bukan video.
+            Action People ML membaca satu frame kamera dan menampilkan hasilnya beserta
+            persentase keyakinan. Semua berjalan di ponsel Anda. Model tertanam di dalam
+            aplikasi, jadi tidak ada frame yang diunggah ke mana pun.
           </p>
 
           <dl class="hero-facts">
+            <div>
+              <dt>Kelas</dt>
+              <dd>Sleeping · Drinking</dd>
+            </div>
             <div>
               <dt>Inferensi</dt>
               <dd>Di perangkat</dd>
             </div>
             <div>
-              <dt>Video keluar</dt>
-              <dd>0 byte</dd>
-            </div>
-            <div>
-              <dt>Butuh internet</dt>
-              <dd>Tidak</dd>
+              <dt>Frame keluar</dt>
+              <dd>0</dd>
             </div>
           </dl>
         </div>
 
         <div class="demo">
           <div class="demo-controls">
-            <span id="evt-label">Jenis event</span>
-            <div class="seg" role="group" aria-labelledby="evt-label">
-              <button type="button" data-evt="hardbrake" aria-pressed="true">Harsh brake</button>
-              <button type="button" data-evt="blocked" aria-pressed="false">Kamera tertutup</button>
-              <button type="button" data-evt="nodriver" aria-pressed="false">Tanpa sopir</button>
+            <span id="state-label">Contoh status layar</span>
+            <div class="seg" role="group" aria-labelledby="state-label">
+              <button type="button" data-state="sleeping" aria-pressed="true">Sleeping</button>
+              <button type="button" data-state="drinking" aria-pressed="false">Drinking</button>
+              <button type="button" data-state="noperson" aria-pressed="false">Tanpa orang</button>
             </div>
           </div>
 
           <figure class="evcard" data-card>
             <div class="evcard-head">
-              <span>B 9821 KXD · Haul 04</span>
-              <span class="live"><i aria-hidden="true"></i><span data-live>Event terekam</span></span>
+              <span>Kamera · pratinjau</span>
+              <span class="live"><i aria-hidden="true"></i><span data-live>Sleeping 73%</span></span>
             </div>
 
             <div class="ev-body">
-              <div class="ev-shot" data-shot role="img" aria-label="Snapshot kamar kabin saat event harsh braking">
+              <div class="ev-shot" data-shot role="img" aria-label="Ilustrasi layar kamera dengan hasil Sleeping 73 persen">
                 <svg viewBox="0 0 160 90" aria-hidden="true" focusable="false">
                   <rect width="160" height="90" fill="#0b0b08"/>
-                  <path d="M0 62h160" stroke="rgba(245,242,235,.14)" stroke-width=".4"/>
-                  <path d="M18 62 34 24h44l16 38" fill="none" stroke="rgba(245,242,235,.16)" stroke-width=".5"/>
 
-                  <g data-scene="cabin">
-                    <ellipse cx="80" cy="34" rx="13" ry="15" fill="rgba(245,242,235,.13)"/>
-                    <path d="M62 66c1-14 8-20 18-20s17 6 18 20" fill="rgba(245,242,235,.13)"/>
-                    <rect class="bbox-dash" x="55" y="16" width="50" height="52" rx="1.5"/>
-                    <rect class="chip-bg" x="55" y="7" width="42" height="7.5"/>
-                    <text class="chip-tx" x="57" y="12.4">PENGEMUDI</text>
+                  <g data-scene="sleeping">
+                    <circle cx="80" cy="36" r="11" fill="rgba(245,242,235,.16)"/>
+                    <path d="M56 82c2-17 11-24 24-24s22 7 24 24z" fill="rgba(245,242,235,.16)"/>
+                    <rect class="bbox-dash" x="58" y="22" width="44" height="58" rx="1.5"/>
+                    <rect class="chip-bg" x="58" y="13" width="40" height="7.5"/>
+                    <text class="chip-tx" x="60" y="18.4">SLEEPING 73%</text>
                   </g>
 
-                  <g data-scene="blocked" display="none">
-                    <ellipse cx="80" cy="34" rx="13" ry="15" fill="rgba(245,242,235,.05)"/>
-                    <path d="M62 66c1-14 8-20 18-20s17 6 18 20" fill="rgba(245,242,235,.05)"/>
-                    <circle cx="80" cy="40" r="17" fill="none" stroke="rgba(198,242,78,.5)" stroke-width=".6" stroke-dasharray="3 2"/>
-                    <path d="M69 29 91 51M91 29 69 51" stroke="rgba(198,242,78,.7)" stroke-width=".7"/>
-                    <rect class="chip-bg" x="50" y="7" width="52" height="7.5"/>
-                    <text class="chip-tx" x="52" y="12.4">LENSA TERTUTUP</text>
+                  <g data-scene="drinking" display="none">
+                    <circle cx="74" cy="34" r="11" fill="rgba(245,242,235,.16)"/>
+                    <path d="M52 82c2-17 10-24 22-24s20 7 22 24z" fill="rgba(245,242,235,.16)"/>
+                    <path d="M86 30h9l3 14-9 3z" fill="rgba(198,242,78,.28)" stroke="rgba(198,242,78,.7)" stroke-width=".5"/>
+                    <rect class="bbox-dash" x="52" y="20" width="50" height="60" rx="1.5"/>
+                    <rect class="chip-bg" x="52" y="11" width="41" height="7.5"/>
+                    <text class="chip-tx" x="54" y="16.4">DRINKING 87%</text>
                   </g>
 
                   <g data-scene="empty" display="none">
-                    <ellipse cx="80" cy="34" rx="13" ry="15" fill="none" stroke="rgba(245,242,235,.12)" stroke-width=".45" stroke-dasharray="2 2"/>
-                    <path d="M62 66c1-14 8-20 18-20s17 6 18 20" fill="none" stroke="rgba(245,242,235,.12)" stroke-width=".45" stroke-dasharray="2 2"/>
-                    <rect class="bbox-dash" x="55" y="16" width="50" height="52" rx="1.5" stroke-dasharray="1.5 2.5"/>
-                    <rect class="chip-bg" x="52" y="7" width="48" height="7.5"/>
-                    <text class="chip-tx" x="54" y="12.4">TIDAK ADA ORANG</text>
+                    <circle cx="80" cy="36" r="11" fill="none" stroke="rgba(245,242,235,.14)" stroke-width=".5" stroke-dasharray="2 2"/>
+                    <path d="M56 82c2-17 11-24 24-24s22 7 24 24" fill="none" stroke="rgba(245,242,235,.14)" stroke-width=".5" stroke-dasharray="2 2"/>
+                    <rect class="bbox-dash" x="58" y="22" width="44" height="58" rx="1.5" stroke-dasharray="1.5 2.5"/>
+                    <rect class="chip-bg" x="44" y="13" width="56" height="7.5"/>
+                    <text class="chip-tx" x="46" y="18.4">NO PERSON DETECTED</text>
                   </g>
 
-                  <g fill="none" stroke="rgba(198,242,78,.42)" stroke-width=".4">
+                  <g fill="none" stroke="rgba(198,242,78,.4)" stroke-width=".4">
                     <path d="M4 4h7M4 4v7M156 4h-7M156 4v7M4 86h7M4 86v-7M156 86h-7M156 86v-7"/>
                   </g>
-                  <text x="150" y="12" fill="rgba(245,242,235,.4)" font-size="2.7" text-anchor="end" letter-spacing=".3">CAM-01</text>
-                  <text x="10" y="12" fill="rgba(245,242,235,.4)" font-size="2.7" letter-spacing=".3">62 KM/H</text>
-                  <text x="150" y="86" fill="rgba(245,242,235,.4)" font-size="2.7" text-anchor="end" letter-spacing=".3">-4,2 M/S²</text>
                 </svg>
               </div>
 
@@ -231,36 +225,35 @@
             </div>
 
             <div class="ev-feed">
-              <p>Event terbaru</p>
+              <p>Status aplikasi</p>
               <ol data-feed></ol>
             </div>
 
             <figcaption class="evcard-foot">
-              <span>Ilustrasi antarmuka</span>
-              <span>Data contoh</span>
+              <span>Ilustrasi layar</span>
+              <span>Bukan rekaman asli</span>
             </figcaption>
           </figure>
         </div>
       </div>
 
       <div class="hero-cta">
-        <a class="btn btn-primary btn-lg" href="#pilot">Mulai pilot 5 kendaraan</a>
-        <a class="btn btn-ghost btn-lg" href="#kemampuan">Lihat kemampuan</a>
-        <p>Program pilot tanpa biaya. 5 kendaraan, 1 bulan, laporan hasil.</p>
+        <a class="btn btn-primary btn-lg" href="#unduh">Unduh aplikasi</a>
+        <a class="btn btn-ghost btn-lg" href="#cara-kerja">Lihat cara kerja</a>
+        <p>Gratis. Tanpa akun, tanpa SDK iklan, tanpa unggahan frame.</p>
       </div>
     </div>
   </section>
 
-  <aside class="usecases" aria-label="Sektor yang dilayani">
+  <aside class="usecases" aria-label="Bisa dipakai untuk">
     <div class="container">
-      <span class="label">Untuk armada</span>
+      <span class="label">Bisa dipakai untuk</span>
       <ul>
-        <li>Logistik &amp; ekspedisi</li>
-        <li>Pertambangan</li>
-        <li>Konstruksi</li>
-        <li>Bus &amp; angkutan</li>
-        <li>Distribusi FMCG</li>
-        <li>Utilitas</li>
+        <li>Demo model visi</li>
+        <li>Uji coba kamera</li>
+        <li>Belajar on-device ML</li>
+        <li>Prototipe klasifikasi</li>
+        <li>Eksperimen mandiri</li>
       </ul>
     </div>
   </aside>
@@ -269,60 +262,60 @@
     <div class="container split reveal">
       <div class="split-head">
         <p class="kicker"><span class="n">01</span> Kemampuan</p>
-        <h2 id="kemampuan-title">Tiga lapis nilai, dari yang paling cepat.</h2>
+        <h2 id="kemampuan-title">Apa yang benar-benar bisa dilakukan aplikasi ini.</h2>
         <p>
-          Kami urutkan berdasarkan kesiapan, bukan berdasarkan ambisi. Fitur di
-          lapis pertama bisa berjalan tanpa model baru sama sekali.
+          Daftar di bawah adalah fitur yang ada di aplikasi yang dirilis, bukan rencana.
+          Semuanya berjalan tanpa server.
         </p>
       </div>
 
       <ol class="rows">
         <li>
-          <span class="row-id">Lapis 1 · Tersedia</span>
-          <h3>Snapshot untuk setiap event telemetri</h3>
+          <span class="row-id">Fitur · Kamera</span>
+          <h3>Klasifikasi langsung</h3>
           <p>
-            Harsh braking, overspeed, atau geofence keluar sudah terdeteksi armada Anda.
-            Sekarang event itu datang dengan bukti visual dari kabin, bukan hanya grafik
-            akselerometer.
+            Pratinjau kamera tampil di layar. Status di bagian atas menampilkan label dan
+            persentase keyakinan, diperbarui beberapa kali per detik mengikuti perubahan
+            adegan.
           </p>
-          <span class="row-stat">Tanpa model</span>
+          <span class="row-stat">Live</span>
         </li>
         <li>
-          <span class="row-id">Lapis 1 · Tersedia</span>
-          <h3>Integritas kamera</h3>
+          <span class="row-id">Fitur · Person gate</span>
+          <h3>Diperiksa dulu sebelum diklasifikasi</h3>
           <p>
-            Lensa ditutup, kabel dicabut, kamera digeser. Modul ini melaporkannya sebagai
-            event, sehingga cakupan kamera yang Anda jual ke klien benar-benar terukur.
+            Aplikasi memeriksa apakah ada orang di dalam frame. Kalau tidak ada, klasifikasi
+            dilewati dan status menampilkan <em>No Person Detected</em>. Baterai dan prosesor
+            tidak dipakai untuk frame kosong.
           </p>
-          <span class="row-stat">Cakupan 24 jam</span>
+          <span class="row-stat">Hemat daya</span>
         </li>
         <li>
-          <span class="row-id">Lapis 1 · Tersedia</span>
-          <h3>Keberadaan pengemudi</h3>
+          <span class="row-id">Fitur · Rekaman</span>
+          <h3>Klip pendek, tanpa audio</h3>
           <p>
-            Kendaraan bergerak tanpa pengemudi, atau pengemudi berganti di tengah rute.
-            Keduanya sinyal berisiko yang tidak pernah terlihat di data GPS.
+            Rekam hingga 60 detik pada 720p, video saja tanpa mikrofon, lalu simpan ke
+            galeri. Klasifikasi tetap berjalan selama perekaman.
           </p>
-          <span class="row-stat">Per trip</span>
+          <span class="row-stat">720p · 60 dtk</span>
         </li>
         <li>
-          <span class="row-id">Lapis 2 · Pilot</span>
-          <h3>Sinyal distraksi</h3>
+          <span class="row-id">Fitur · Foto</span>
+          <h3>Alternatif saat kamera tidak tersedia</h3>
           <p>
-            Makan, minum, dan telepon di kabin tercatat sebagai event dengan waktu dan
-            durasi. Dirancang untuk skor keselamatan dan pelatihan, bukan untuk menghukum.
+            Kalau izin kamera ditolak atau kamera gagal dibuka, pilih foto dari galeri. Foto
+            diproses dengan model dan aturan yang sama seperti kamera.
           </p>
-          <span class="row-stat">Skor safety</span>
+          <span class="row-stat">Dari galeri</span>
         </li>
         <li>
-          <span class="row-id">Lapis 3 · Roadmap</span>
-          <h3>Kelelahan pengemudi</h3>
+          <span class="row-id">Batas · Penting</span>
+          <h3>Bukan alat medis, bukan pengambil keputusan</h3>
           <p>
-            Permintaan paling sering dari vendor armada, dan yang paling kami jaga.
-            Belum dirilis karena butuh validasi lapangan dan data wajah yang sah secara
-            persetujuan.
+            Aplikasi hanya menampilkan hasil klasifikasi satu frame. Ia tidak mendeteksi
+            jatuh, tidak menilai kesehatan, dan tidak membuat keputusan keselamatan sendiri.
           </p>
-          <span class="row-stat">Belum tersedia</span>
+          <span class="row-stat">Baca dulu</span>
         </li>
       </ol>
     </div>
@@ -333,107 +326,54 @@
       <div class="platform-head">
         <div>
           <p class="kicker"><span class="n">02</span> Cara kerja</p>
-          <h2 id="cara-title">Empat langkah, satu perangkat.</h2>
+          <h2 id="cara-title">Empat langkah, semuanya di ponsel.</h2>
         </div>
         <p>
-          Tidak ada GPU di cloud, tidak ada antrean unggahan, tidak ada ketergantungan
-          sinyal. Semuanya selesai di dalam kendaraan.
+          Tidak ada unggahan, tidak ada akun, tidak ada antrean server. Yang Anda lihat di
+          layar berasal dari pemrosesan yang sama di dalam perangkat.
         </p>
       </div>
 
       <ol class="steps reveal">
         <li>
           <span class="n">01</span>
-          <h3>Tangkap</h3>
-          <p>Kamera kabin mengambil frame pada interval terkendali, sesuai event dan kebijakan hemat daya.</p>
+          <h3>Ambil frame</h3>
+          <p>Kamera mengambil frame, lalu mengecilkannya ke ukuran yang dipakai model.</p>
         </li>
         <li>
           <span class="n">02</span>
-          <h3>Saring</h3>
-          <p>Deteksi keberadaan orang berjalan lebih dulu. Tidak ada orang, tidak ada klasifikasi, tidak ada biaya komputasi.</p>
+          <h3>Periksa orang</h3>
+          <p>Kalau tidak ada orang di frame, klasifikasi dilewati dan status berubah.</p>
         </li>
         <li>
           <span class="n">03</span>
           <h3>Klasifikasi</h3>
-          <p>Model visi berjalan lokal dengan akselerasi perangkat keras: NNAPI di Android, Metal di iOS, CPU pada perangkat lain.</p>
+          <p>Model berjalan lokal dengan akselerasi perangkat keras, menghasilkan satu probabilitas.</p>
         </li>
         <li>
           <span class="n">04</span>
-          <h3>Kirim kesimpulan</h3>
-          <p>Yang berangkat hanya event, timestamp, dan snapshot terpilih. Video mentah tidak pernah meninggalkan kendaraan.</p>
+          <h3>Tampilkan</h3>
+          <p>Label dan persentase keyakinan muncul di layar. Tidak ada yang dikirim keluar.</p>
         </li>
       </ol>
 
       <p class="table-note">
-        Arsitektur: Kotlin Multiplatform, satu basis kode untuk Android, iOS, Windows,
-        macOS, dan web. Runtime inferensi LiteRT dan TensorFlow Lite, model 15 MB,
-        berjalan pada 5 frame per detik tanpa mengganggu perangkat lain.
+        Dibangun dengan Kotlin Multiplatform dan Compose Multiplatform. Runtime inferensi
+        LiteRT di Android dan TensorFlow Lite di iOS, memakai satu model 15 MB yang sama di
+        kedua platform. Versi desktop dan web belum menjalankan inferensi dan menampilkan
+        status tidak didukung.
       </p>
-    </div>
-  </section>
-
-  <section class="section" id="vendor" aria-labelledby="vendor-title">
-    <div class="container split reveal">
-      <div class="split-head">
-        <p class="kicker"><span class="n">03</span> Untuk vendor telematics</p>
-        <h2 id="vendor-title">Naikkan nilai paket tanpa memasang hardware baru.</h2>
-        <p>
-          Anda sudah punya kendaraan terpasang, teknisi, kontrak, dan billing. Yang belum
-          ada adalah alasan bagi klien korporat untuk membayar lebih setiap bulan.
-        </p>
-      </div>
-
-      <ol class="rows">
-        <li>
-          <span class="row-id">Dampak 1 · Pendapatan</span>
-          <h3>SKU baru, bukan biaya baru</h3>
-          <p>
-            Lapisan penglihatan dijual sebagai paket tambahan di atas langganan yang sudah
-            berjalan. Basis kendaraan yang ada langsung menjadi pasar, tanpa satu pun
-            instalasi tambahan.
-          </p>
-          <span class="row-stat">Upsell</span>
-        </li>
-        <li>
-          <span class="row-id">Dampak 2 · Retensi</span>
-          <h3>Menempel lebih dalam ke operasional klien</h3>
-          <p>
-            Skor keselamatan per pengemudi dipakai untuk pelatihan dan tender. Begitu klien
-            memakai skor itu untuk keputusan mereka, biaya berpindah vendor naik.
-          </p>
-          <span class="row-stat">Churn turun</span>
-        </li>
-        <li>
-          <span class="row-id">Dampak 3 · Diferensiasi</span>
-          <h3>Argumen yang tidak dimiliki pesaing</h3>
-          <p>
-            Di tender, semua vendor punya GPS dan laporan kecepatan. Sangat sedikit yang
-            bisa menyerahkan bukti visual per event, dengan video tetap di dalam kendaraan.
-          </p>
-          <span class="row-stat">Tender</span>
-        </li>
-        <li>
-          <span class="row-id">Dampak 4 · Kepatuhan</span>
-          <h3>Privasi sebagai jawaban, bukan hambatan</h3>
-          <p>
-            Klien korporat menolak kamera yang mengirim video ke cloud. Karena inferensi
-            berjalan lokal, pertanyaan itu selesai sebelum rapat dimulai.
-          </p>
-          <span class="row-stat">On-device</span>
-        </li>
-      </ol>
     </div>
   </section>
 
   <section class="band" id="privasi" aria-labelledby="privasi-title">
     <div class="container band-grid">
       <div class="reveal">
-        <p class="kicker"><span class="n">04</span> Privasi &amp; kepatuhan</p>
-        <h2 id="privasi-title">Videonya tidak pernah keluar dari kendaraan.</h2>
+        <p class="kicker"><span class="n">03</span> Privasi</p>
+        <h2 id="privasi-title">Framenya tidak pernah keluar dari ponsel.</h2>
         <p>
-          Bukan sekadar janji pemasaran: model berjalan di perangkat, dan tidak ada jalur
-          unggahan video di dalam arsitektur. Itu yang membuat modul ini bisa masuk ke
-          klien yang paling ketat soal data.
+          Ini bukan setelan yang bisa dimatikan. Model ada di dalam aplikasi dan inferensi
+          berjalan lokal, jadi tidak ada jalur untuk mengirim frame kamera keluar.
         </p>
         <div class="band-actions">
           <a class="btn btn-primary" href="privacy.html">Baca kebijakan privasi</a>
@@ -444,93 +384,140 @@
       <ul class="checks reveal">
         <li>
           <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 8.5 3.2 3.2L13 5"/></svg>
-          Frame diproses di memori kendaraan, lalu dibuang
+          Model tertanam di aplikasi, inferensi lokal
         </li>
         <li>
           <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 8.5 3.2 3.2L13 5"/></svg>
-          Tidak ada penyimpanan rekaman diam-diam
+          Tanpa akun, tanpa SDK analitik, tanpa iklan
         </li>
         <li>
           <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 8.5 3.2 3.2L13 5"/></svg>
-          Retensi snapshot ditentukan kebijakan Anda, bukan default kami
+          Rekaman hanya tersimpan di galeri Anda
         </li>
         <li>
           <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 8.5 3.2 3.2L13 5"/></svg>
-          Beban bandwidth mendekati nol, cocok untuk rute tanpa sinyal
+          Bisa dipakai tanpa koneksi internet
         </li>
       </ul>
     </div>
   </section>
 
-  <section class="section" id="pilot" aria-labelledby="pilot-title">
-    <div class="container split reveal">
-      <div class="split-head">
-        <p class="kicker"><span class="n">05</span> Pilot</p>
-        <h2 id="pilot-title">Lima kendaraan. Satu bulan. Angka yang bisa dipakai.</h2>
+  <section class="section" id="unduh" aria-labelledby="unduh-title">
+    <div class="container">
+      <div class="platform-head">
+        <div>
+          <p class="kicker"><span class="n">04</span> Unduh</p>
+          <h2 id="unduh-title">Tersedia untuk Android dan iOS.</h2>
+        </div>
         <p>
-          Kami tidak meminta komitmen tahunan untuk membuktikan modul ini bekerja.
-          Kami meminta satu armada kecil dan izin mengukur.
+          Versi desktop dan web memakai kode yang sama tetapi belum menjalankan inferensi.
+          Di sana aplikasi menampilkan status tidak didukung.
         </p>
       </div>
 
-      <div>
-        <ol class="rows">
-          <li>
-            <span class="row-id">Langkah 1</span>
-            <h3>Pasang di 5 kendaraan</h3>
-            <p>Kamera kabin yang sudah ada atau unit pinjaman. Tidak ada perubahan pada perangkat telematics.</p>
-            <span class="row-stat">Hari 1</span>
-          </li>
-          <li>
-            <span class="row-id">Langkah 2</span>
-            <h3>Jalankan rute normal</h3>
-            <p>Tanpa mengubah operasional. Kami mengumpulkan event dan metrik kualitas sinyal.</p>
-            <span class="row-stat">4 minggu</span>
-          </li>
-          <li>
-            <span class="row-id">Langkah 3</span>
-            <h3>Serahkan hasilnya</h3>
-            <p>Laporan event, tingkat cakupan kamera, dan perkiraan dampak ke nilai paket Anda.</p>
-            <span class="row-stat">Tanpa biaya</span>
-          </li>
-        </ol>
+      <table class="platform-table">
+        <caption class="sr-only">Tautan unduhan per platform</caption>
+        <thead>
+          <tr>
+            <th scope="col">Platform</th>
+            <th scope="col">Ketersediaan</th>
+            <th scope="col"><span class="sr-only">Tautan</span></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <div class="platform-cell">
+                <span class="platform-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round">
+                    <path d="M4.5 3.2 17.8 12 4.5 20.8z"/>
+                    <path d="M4.5 3.2 13 12l-8.5 8.8"/>
+                  </svg>
+                </span>
+                <span class="platform-name">
+                  <strong>Android</strong>
+                  <span>Google Play</span>
+                </span>
+              </div>
+            </td>
+            <td class="sys">Android 10 ke atas</td>
+            <td class="action"><a class="get" data-store="playStore" data-soon="Segera hadir">Dapatkan <span aria-hidden="true">&#8599;</span></a></td>
+          </tr>
+          <tr>
+            <td>
+              <div class="platform-cell">
+                <span class="platform-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M15.8 12.6c0-2.1 1.7-3.1 1.8-3.2-1-1.4-2.5-1.6-3-1.6-1.3-.1-2.5.7-3.1.7-.7 0-1.7-.7-2.7-.7-1.4 0-2.7.8-3.4 2-1.4 2.5-.4 6.2 1 8.2.7 1 1.5 2.1 2.5 2 1-.1 1.4-.6 2.6-.6s1.6.6 2.6.6c1.1 0 1.8-1 2.5-2 .5-.7.8-1.4 1-1.8-2.3-.9-1.8-3.5-1.8-3.6z"/>
+                    <path d="M13.9 6.2c.6-.7 1-1.7.9-2.7-.9.1-1.9.6-2.5 1.3-.5.6-1 1.6-.9 2.6 1 .1 2-.5 2.5-1.2z"/>
+                  </svg>
+                </span>
+                <span class="platform-name">
+                  <strong>iPhone &amp; iPad</strong>
+                  <span>App Store</span>
+                </span>
+              </div>
+            </td>
+            <td class="sys">iOS 16 ke atas</td>
+            <td class="action"><a class="get" data-store="appStore" data-soon="Segera hadir">Dapatkan <span aria-hidden="true">&#8599;</span></a></td>
+          </tr>
+          <tr>
+            <td>
+              <div class="platform-cell">
+                <span class="platform-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="2.5" y="4" width="19" height="12.5" rx="1.6"/>
+                    <path d="M8 20h8M12 16.5V20"/>
+                  </svg>
+                </span>
+                <span class="platform-name">
+                  <strong>Desktop &amp; web</strong>
+                  <span>macOS · Windows · browser</span>
+                </span>
+              </div>
+            </td>
+            <td class="sys">Belum mendukung inferensi</td>
+            <td class="action"><span class="get is-static">Tidak didukung</span></td>
+          </tr>
+        </tbody>
+      </table>
 
-        <div class="hero-actions">
-          <a class="btn btn-primary btn-lg" href="mailto:halo@actionpeople.ml?subject=Pilot%20armada%20Action%20People%20ML">Ajukan pilot armada</a>
-          <a class="btn btn-ghost btn-lg" href="mailto:halo@actionpeople.ml?subject=Kemitraan%20vendor%20telematics">Diskusi kemitraan</a>
-        </div>
-      </div>
+      <p class="table-note">
+        Tautan toko masih template. Isi URL asli di <code>assets/store-links.js</code>.
+        Selama belum diisi, tautan tampil sebagai &ldquo;Segera hadir&rdquo; dan tidak
+        menunjuk ke alamat yang salah.
+      </p>
     </div>
   </section>
 
   <section class="section" id="faq" aria-labelledby="faq-title">
     <div class="container faq-grid reveal">
       <div>
-        <p class="kicker"><span class="n">06</span> FAQ</p>
+        <p class="kicker"><span class="n">05</span> FAQ</p>
         <h2 id="faq-title">Pertanyaan yang sering muncul.</h2>
         <p>Belum terjawab? Kirim pesan ke <a href="mailto:halo@actionpeople.ml">halo@actionpeople.ml</a>.</p>
       </div>
 
       <div class="faq-list">
         <details open>
-          <summary>Apakah video kamera dikirim ke server?</summary>
-          <p>Tidak. Inferensi berjalan di perangkat di dalam kendaraan. Yang keluar dari kendaraan hanya metadata event dan snapshot terpilih sesuai kebijakan Anda.</p>
+          <summary>Apakah frame kamera diunggah ke server?</summary>
+          <p>Tidak. Model tertanam di dalam aplikasi dan inferensi berjalan di perangkat, sehingga frame kamera tidak pernah dikirim keluar ponsel.</p>
         </details>
         <details>
-          <summary>Apakah modul ini bekerja tanpa internet?</summary>
-          <p>Ya. Deteksi berjalan offline. Sinkronisasi event dilakukan saat kendaraan kembali ke jaringan, sehingga cocok untuk haul road, area tambang, dan rute terpencil.</p>
+          <summary>Apakah aplikasi bisa dipakai tanpa internet?</summary>
+          <p>Ya. Setelah aplikasi terpasang, klasifikasi berjalan tanpa koneksi internet karena seluruh model sudah ada di perangkat.</p>
         </details>
         <details>
-          <summary>Apakah ini menggantikan platform telematics yang sudah ada?</summary>
-          <p>Tidak. Modul ini melengkapi platform yang sudah berjalan. Vendor telematics menambahkan lapisan penglihatan ke event yang sudah mereka deteksi, tanpa mengganti hardware maupun dashboard.</p>
+          <summary>Apa yang terjadi kalau tidak ada orang di dalam frame?</summary>
+          <p>Aplikasi memeriksa keberadaan orang sebelum klasifikasi. Bila tidak ada orang, klasifikasi dilewati dan status menampilkan <em>No Person Detected</em>.</p>
         </details>
         <details>
-          <summary>Apakah sistem ini mendeteksi kelelahan pengemudi?</summary>
-          <p>Deteksi kelelahan berada di jalur pengembangan dan belum tersedia untuk produksi. Fitur yang tersedia saat ini adalah snapshot per event, integritas kamera, deteksi keberadaan pengemudi, dan sinyal distraksi.</p>
+          <summary>Berapa lama klip yang bisa direkam?</summary>
+          <p>Hingga 60 detik pada 720p, video saja tanpa audio. Klip disimpan ke galeri perangkat Anda.</p>
         </details>
         <details>
-          <summary>Bagaimana skema komersialnya?</summary>
-          <p>Lisensi per kendaraan per bulan, atau bagi hasil dari paket yang Anda jual ke klien. Keduanya dirancang agar masuk ke dalam struktur harga yang sudah Anda pakai.</p>
+          <summary>Apakah aplikasi ini perangkat medis?</summary>
+          <p>Bukan. Aplikasi ini menampilkan hasil klasifikasi gambar dan tidak membuat keputusan keselamatan atau diagnosis sendiri.</p>
         </details>
       </div>
     </div>
@@ -545,25 +532,26 @@
         <img src="assets/mark.svg" alt="" width="18" height="18">
         Action People ML
       </a>
-      <p class="foot-note">Lapisan AI penglihatan on-device untuk armada telematics.</p>
+      <p class="foot-note">Klasifikasi Sleeping atau Drinking, sepenuhnya di perangkat.</p>
     </div>
 
     <nav class="foot-links" aria-label="Navigasi kaki halaman">
       <a href="#kemampuan">Kemampuan</a>
       <a href="#cara-kerja">Cara kerja</a>
-      <a href="#vendor">Untuk vendor</a>
+      <a href="#unduh">Unduh</a>
       <a href="privacy.html">Kebijakan privasi</a>
       <a href="mailto:halo@actionpeople.ml">Kontak</a>
     </nav>
 
     <p class="foot-meta">
       &copy; <span id="year">2026</span> Action People ML<br>
-      Dibuat untuk berjalan lokal
+      Bukan perangkat medis
     </p>
   </div>
 </footer>
 
 <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+<script src="assets/store-links.js"></script>
 <script src="assets/app.js"></script>
 </body>
 </html>

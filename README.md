@@ -1,36 +1,56 @@
 # Action People ML — Landing Page
 
-Situs pemasaran statis untuk **Action People ML**, modul penglihatan on-device
-untuk armada telematics. Dibangun dengan HTML, CSS, dan JavaScript tanpa build step.
+Situs statis untuk **Action People ML**, aplikasi kamera Android dan iOS.
+Dibangun dengan HTML, CSS, dan JavaScript tanpa build step.
 
 ## Posisi produk
 
-Telemetri armada sudah mengukur kecepatan, lokasi, dan akselerasi. Yang tidak
-terukur adalah apa yang terjadi di dalam kabin. Modul ini menambahkan lapisan
-penglihatan yang berjalan **di dalam kendaraan**, dan hanya mengirim event serta
-snapshot terpilih. Video tidak pernah diunggah.
+Aplikasi membaca satu frame kamera dan mengklasifikasikannya sebagai
+**Sleeping** atau **Drinking**, lengkap dengan persentase keyakinan. Model
+tertanam di dalam aplikasi dan inferensi berjalan di perangkat, sehingga frame
+kamera tidak pernah diunggah.
 
-Halaman menjual dalam tiga lapis sesuai kesiapan:
+Yang dijual di halaman adalah fitur yang benar-benar ada di aplikasi:
 
-| Lapis | Isi | Status |
-|---|---|---|
-| 1 | Snapshot per event telemetri, integritas kamera, keberadaan pengemudi | Tersedia |
-| 2 | Sinyal distraksi: makan, minum, telepon | Pilot |
-| 3 | Kelelahan pengemudi | Roadmap, belum dirilis |
+| Fitur | Status |
+|---|---|
+| Klasifikasi kamera langsung dengan persentase keyakinan | Ada |
+| Person gate: klasifikasi dilewati bila tidak ada orang | Ada |
+| Rekaman 720p maksimal 60 detik, tanpa audio, ke galeri | Ada |
+| Klasifikasi foto dari galeri sebagai alternatif kamera | Ada |
+| Inferensi di desktop dan web | Belum ada, status tidak didukung |
+
+Aplikasi ini bukan alat medis dan tidak membuat keputusan keselamatan sendiri.
+Batas itu dinyatakan eksplisit di halaman, FAQ, dan kebijakan privasi.
 
 ## Struktur
 
 ```
-index.html        Landing page
-privacy.html      Kebijakan privasi
+index.html            Landing page
+privacy.html          Kebijakan privasi
 assets/
-  styles.css      Design system, layout, responsive, print
-  app.js          Panel event interaktif, scroll reveal, penanda daftar isi
-  mark.svg        Logo mark
-  og.png          Gambar Open Graph 1200x630
-robots.txt        Aturan crawler
-sitemap.xml       Sitemap
+  styles.css          Design system, layout, responsive, print
+  app.js              Panel status interaktif, scroll reveal, penanda daftar isi
+  store-links.js      Template URL toko aplikasi
+  mark.svg            Logo mark
+  og.png              Gambar Open Graph 1200x630
+robots.txt            Aturan crawler
+sitemap.xml           Sitemap
 ```
+
+## Mengisi tautan toko
+
+Semua tautan unduhan berada di satu tempat: `assets/store-links.js`.
+
+```js
+window.ACTION_PEOPLE_LINKS = {
+  playStore: "https://play.google.com/store/apps/details?id=com.hadilomu.actionpeopleml",
+  appStore: "https://apps.apple.com/app/id<APPLE_ID>",
+};
+```
+
+Selama sebuah URL masih mengandung `REPLACE`, tautannya tampil sebagai
+"Segera hadir" dengan `aria-disabled`, jadi tidak pernah ada tautan mati.
 
 ## SEO
 
@@ -58,12 +78,12 @@ Tidak ada dependency, tidak ada build step.
 ## Gambar Open Graph
 
 `assets/og.png` adalah artefak desain 1200x630 yang sudah jadi. Untuk mengubahnya,
-edit langsung di editor gambar atau desain ulang dari file sumber desain.
-Tidak ada skrip pembuat gambar di repo ini.
+edit langsung di editor gambar. Tidak ada skrip pembuat gambar di repo ini.
 
 ## Sebelum publikasi
 
 - Ganti alamat surel `halo@actionpeople.ml` dan `privasi@actionpeople.ml`.
-- Sesuaikan tanggal berlaku serta bagian retensi dan pihak ketiga pada `privacy.html`.
-- Pastikan klaim di halaman sesuai dengan kemampuan modul saat dirilis. Fitur Lapis 3
-  sengaja diberi label "belum tersedia" agar tidak menjadi klaim yang tidak bisa dibuktikan.
+- Sesuaikan tanggal berlaku serta bagian izin dan pihak ketiga pada `privacy.html`.
+- Jaga agar isi halaman tetap sama dengan kemampuan aplikasi yang dirilis. Jangan
+  menambahkan klaim fitur yang belum ada di build, karena itu bisa memicu
+  pelanggaran metadata di Play Store.
